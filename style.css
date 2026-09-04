@@ -1,0 +1,184 @@
+:root{
+  --ink:#1B3B2F; --ink-2:#234A3A;
+  --paper:#F6F2E9; --paper-2:#EFE9DB;
+  --gold:#B8862E; --gold-light:#E7C87A;
+  --teal:#1F4B3F;
+  --text:#2A2620; --text-soft:#5C574C;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--text);font-family:'IBM Plex Sans Arabic', sans-serif;line-height:1.8;}
+h1,h2,h3,.display{font-family:'Tajawal', sans-serif;font-weight:900;color:var(--ink);}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+
+/* ===== Header / Nav ===== */
+header{position:sticky;top:0;z-index:50;background:rgba(246,242,233,0.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(27,59,47,0.08);}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1080px;margin:0 auto;}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand-mark{width:40px;height:40px;border-radius:10px;background:var(--ink);display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-family:'Tajawal';font-weight:900;font-size:17px;}
+.brand-name{font-family:'Tajawal';font-weight:700;font-size:17px;color:var(--ink);}
+.nav-links{display:flex;gap:22px;font-size:14px;color:var(--text-soft);flex-wrap:wrap;}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a.active{color:var(--ink);font-weight:700;}
+@media(max-width:900px){.nav-links{display:none;}}
+
+/* ===== Page hero (لكل صفحة داخلية) ===== */
+.page-hero{background:var(--ink);padding:60px 0 44px;}
+.page-hero .eyebrow{color:var(--gold-light);font-weight:500;font-size:14px;margin-bottom:12px;}
+.page-hero h1{color:#fff;font-size:36px;margin-bottom:12px;}
+.page-hero p{color:#C7CFDE;font-size:15.5px;max-width:600px;}
+.back-link{display:inline-block;margin-top:18px;color:var(--gold-light);font-size:13.5px;}
+
+/* ===== Hero (الرئيسية فقط) ===== */
+.hero{position:relative;overflow:hidden;padding:0;}
+.hero-inner{position:relative;min-height:440px;display:flex;align-items:center;}
+.hero-illustration{position:absolute;inset:0;z-index:0;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg, rgba(27,59,47,0.94) 0%, rgba(27,59,47,0.75) 45%, rgba(27,59,47,0.35) 100%);z-index:1;}
+.hero-content{position:relative;z-index:2;padding:70px 28px;max-width:1080px;margin:0 auto;width:100%;}
+.eyebrow{color:var(--gold-light);font-weight:500;font-size:14px;margin-bottom:16px;}
+.hero h1{font-size:44px;line-height:1.3;color:#fff;margin-bottom:16px;max-width:560px;}
+@media(max-width:560px){.hero h1{font-size:30px;}}
+.hero p{font-size:16.5px;color:#D8DEE9;max-width:480px;margin-bottom:30px;}
+.quick-links{display:flex;gap:10px;flex-wrap:wrap;}
+.qlink{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);color:#fff;padding:9px 18px;border-radius:20px;font-size:13.5px;transition:.15s;}
+.qlink:hover{background:var(--gold);border-color:var(--gold);}
+
+/* ===== Sections عامة ===== */
+.section{padding:76px 0;}
+.section-head{margin-bottom:44px;max-width:600px;}
+.section-head .eyebrow{margin-bottom:12px;}
+.section-head h2{font-size:32px;margin-bottom:14px;}
+.section-head p{color:var(--text-soft);font-size:16px;}
+.see-all{display:inline-block;margin-top:28px;font-size:14.5px;color:var(--ink);font-weight:500;border-bottom:1.5px solid var(--gold);padding-bottom:2px;}
+
+/* ===== كلمة المديرة ===== */
+.principal{display:grid;grid-template-columns:180px 1fr;gap:36px;align-items:center;}
+@media(max-width:600px){.principal{grid-template-columns:1fr;text-align:center;}}
+.principal-avatar{width:150px;height:150px;border-radius:50%;background:var(--ink);display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-family:'Tajawal';font-weight:900;font-size:44px;border:4px solid var(--gold-light);margin:0 auto;}
+.principal-text .eyebrow{margin-bottom:10px;}
+.principal-text h2{font-size:26px;margin-bottom:14px;}
+.principal-quote{font-size:16px;color:var(--text-soft);line-height:1.9;margin-bottom:12px;}
+.principal-name{font-family:'Tajawal';font-weight:700;color:var(--ink);font-size:15px;}
+.principal-title{font-size:13px;color:var(--gold);}
+
+/* ===== بطاقات نصية عامة (about-card) ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+@media(max-width:720px){.about-grid{grid-template-columns:1fr;}}
+.about-card{background:#fff;border:1px solid rgba(27,59,47,0.08);border-radius:14px;padding:30px;}
+.about-card h3{font-size:19px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.about-card p{color:var(--text-soft);font-size:15px;}
+.about-card ul{color:var(--text-soft);font-size:15px;padding-inline-start:20px;}
+.about-card li{margin-bottom:6px;}
+.vm-block{margin-bottom:14px;}
+.vm-block:last-child{margin-bottom:0;}
+.vm-label{font-size:12.5px;color:var(--gold);font-weight:500;margin-bottom:4px;}
+
+/* ===== بطاقات الإنجازات المختصرة (highlights) ===== */
+.ach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+@media(max-width:820px){.ach-grid{grid-template-columns:1fr;}}
+.ach-card{background:#fff;border:1px solid rgba(27,59,47,0.08);border-radius:14px;padding:24px;position:relative;}
+.ach-icon{width:44px;height:44px;border-radius:10px;background:var(--paper-2);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px;}
+.ach-card h4{font-size:16.5px;margin-bottom:6px;color:var(--ink);font-family:'Tajawal';font-weight:700;}
+.ach-card p{font-size:14px;color:var(--text-soft);margin-bottom:10px;}
+.ach-meta{font-size:12.5px;color:var(--teal);}
+
+/* ===== معرض الصور المصغر / الكبير ===== */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+@media(max-width:820px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+.gallery-grid.cols-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:820px){.gallery-grid.cols-3{grid-template-columns:1fr 1fr;}}
+.g-card{aspect-ratio:1/1;border-radius:12px;display:flex;align-items:flex-end;padding:14px;color:#fff;font-size:13px;font-weight:500;position:relative;overflow:hidden;background-size:cover;background-position:center;}
+.g-card::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg, rgba(27,59,47,0.1), rgba(27,59,47,0.85));}
+.g-card span{position:relative;z-index:1;}
+.gallery-grid.cols-3 .g-card{aspect-ratio:4/3;}
+
+/* ===== شبكة الوصول السريع للأقسام (الرئيسية) ===== */
+.sections-nav{background:var(--ink);}
+.sn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.08);}
+@media(max-width:820px){.sn-grid{grid-template-columns:repeat(2,1fr);}}
+.sn-item{background:var(--ink);padding:34px 24px;transition:.15s;}
+.sn-item:hover{background:var(--ink-2);}
+.sn-icon{font-size:24px;margin-bottom:10px;}
+.sn-title{font-family:'Tajawal';font-weight:700;color:#fff;font-size:15.5px;margin-bottom:4px;}
+.sn-desc{font-size:12.5px;color:#9AA5BC;}
+
+/* ===== فلاتر التصنيف (تستخدم بعدة صفحات) ===== */
+.filters{position:sticky;top:73px;z-index:40;background:var(--paper);padding:20px 0;border-bottom:1px solid rgba(27,59,47,0.08);}
+.filter-row{display:flex;gap:10px;flex-wrap:wrap;}
+.f-btn{background:#fff;border:1.5px solid rgba(27,59,47,0.12);color:var(--text-soft);padding:9px 18px;border-radius:20px;font-size:13.5px;cursor:pointer;font-family:'IBM Plex Sans Arabic';transition:.15s;}
+.f-btn:hover{border-color:var(--gold);}
+.f-btn.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+.count-line{color:var(--text-soft);font-size:14px;margin-bottom:26px;}
+.empty-state{text-align:center;padding:60px 0;color:var(--text-soft);font-size:15px;}
+
+/* ===== بطاقات المحتوى ذات الوسائط (achievements / initiatives / digital gallery) ===== */
+.cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+@media(max-width:760px){.cards-grid{grid-template-columns:1fr;}}
+.a-card{background:#fff;border:1px solid rgba(27,59,47,0.08);border-radius:14px;overflow:hidden;}
+.a-media{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.75);font-size:28px;}
+.a-body{padding:22px 24px;}
+.a-tag{display:inline-block;font-size:12px;color:var(--teal);background:#EAF1EE;padding:3px 12px;border-radius:20px;margin-bottom:12px;}
+.a-title{font-size:18px;font-family:'Tajawal';font-weight:700;color:var(--ink);margin-bottom:10px;}
+.a-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--text-soft);margin-bottom:12px;}
+.a-meta span{display:flex;align-items:center;gap:5px;}
+.a-desc{font-size:14.5px;color:var(--text-soft);}
+.a-extra{margin-top:14px;padding-top:14px;border-top:1px dashed rgba(27,59,47,0.12);font-size:13.5px;color:var(--text-soft);}
+.a-extra b{color:var(--ink);}
+
+/* ===== الفقرات/الأخبار الأسبوعية ===== */
+.weekly-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media(max-width:720px){.weekly-grid{grid-template-columns:1fr;}}
+.w-card{background:#fff;border:1px solid rgba(27,59,47,0.08);border-radius:12px;padding:22px 24px;display:flex;flex-direction:column;gap:10px;}
+.w-date{font-size:13px;color:var(--gold);font-weight:500;}
+.w-title{font-size:18px;font-family:'Tajawal';font-weight:700;color:var(--ink);}
+.w-desc{font-size:14.5px;color:var(--text-soft);}
+.w-file{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;color:var(--teal);margin-top:4px;font-weight:500;}
+.w-file:hover{text-decoration:underline;}
+.w-tag{display:inline-block;font-size:12px;color:var(--teal);background:#EAF1EE;padding:3px 12px;border-radius:20px;align-self:flex-start;}
+
+/* ===== بطاقات الطالبات (students.html) ===== */
+.students-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+@media(max-width:820px){.students-grid{grid-template-columns:repeat(2,1fr);}}
+.student-card{background:#fff;border:1px solid rgba(27,59,47,0.08);border-radius:14px;padding:22px 18px;text-align:center;transition:.15s;}
+.student-card:hover{transform:translateY(-3px);border-color:var(--gold);}
+.student-avatar{width:76px;height:76px;border-radius:50%;background:var(--ink);color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-family:'Tajawal';font-weight:900;font-size:24px;margin:0 auto 14px;}
+.student-name{font-family:'Tajawal';font-weight:700;font-size:15px;color:var(--ink);margin-bottom:4px;}
+.student-note{font-size:12.5px;color:var(--text-soft);}
+
+/* ===== صفحة ملف طالبة (student.html) ===== */
+.profile-head{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.profile-avatar{width:110px;height:110px;border-radius:50%;background:var(--ink);color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-family:'Tajawal';font-weight:900;font-size:34px;border:4px solid var(--gold-light);}
+.profile-block{margin-bottom:30px;}
+.profile-block h3{font-size:19px;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.profile-block p{color:var(--text-soft);font-size:15px;}
+.tags-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.tag-chip{font-size:12.5px;background:var(--paper-2);color:var(--ink);padding:4px 12px;border-radius:20px;}
+.reflection-box{background:var(--paper-2);border-radius:12px;padding:22px 26px;font-size:15px;color:var(--text-soft);border-inline-start:4px solid var(--gold);}
+
+/* ===== المبادرات (initiatives.html) ===== */
+.initiative-card{background:#fff;border:1px solid rgba(27,59,47,0.08);border-radius:14px;padding:26px;margin-bottom:20px;}
+.initiative-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:16px;}
+.initiative-title{font-size:19px;font-family:'Tajawal';font-weight:700;color:var(--ink);}
+.initiative-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;font-size:14px;color:var(--text-soft);}
+@media(max-width:640px){.initiative-grid{grid-template-columns:1fr;}}
+.initiative-label{font-size:12px;color:var(--gold);font-weight:500;margin-bottom:3px;}
+
+/* ===== الأخبار (news.html) ===== */
+.news-list{display:flex;flex-direction:column;gap:18px;}
+.news-item{background:#fff;border:1px solid rgba(27,59,47,0.08);border-radius:14px;padding:22px 26px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;}
+.news-date-box{background:var(--paper-2);border-radius:10px;padding:10px 16px;text-align:center;min-width:70px;}
+.news-date-box .d{font-family:'Tajawal';font-weight:900;color:var(--ink);font-size:20px;}
+.news-date-box .m{font-size:11.5px;color:var(--text-soft);}
+.news-body{flex:1;min-width:200px;}
+.news-title{font-size:17px;font-family:'Tajawal';font-weight:700;color:var(--ink);margin-bottom:6px;}
+.news-desc{font-size:14.5px;color:var(--text-soft);}
+.news-tag{display:inline-block;font-size:12px;color:var(--teal);background:#EAF1EE;padding:3px 12px;border-radius:20px;margin-top:8px;}
+
+/* ===== Footer ===== */
+footer{background:var(--ink);color:#C7CFDE;padding:40px 0 24px;border-top:1px solid rgba(255,255,255,0.08);}
+.foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:16px;}
+.foot-grid .brand-name{color:var(--paper);}
+footer .nav-links a{color:#C7CFDE;}
+.foot-note{font-size:12.5px;color:#8B93A8;text-align:center;}

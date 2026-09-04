@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ملفات إنجاز الطالبات | علماء الغد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">ع</div>
+      <div class="brand-name">علماء الغد</div>
+    </a>
+    <nav class="nav-links">
+      <a href="about.html">عن المدرسة</a>
+      <a href="achievements.html">الإنجازات</a>
+      <a href="students.html" class="active">ملفات الطالبات</a>
+      <a href="initiatives.html">المبادرات</a>
+      <a href="digital-gallery.html">المعرض الرقمي</a>
+      <a href="photo-gallery.html">معرض الصور</a>
+      <a href="news.html">الأخبار</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">👩🏻‍🎓 ملفات إنجاز الطالبات</div>
+    <h1>مسيرة كل طالبة، في ملف خاص بها</h1>
+    <p>كل طالبة لها ملف مستقل يوثّق مشاريعها ومشاركاتها وشهاداتها وتأملها في رحلتها. اضغطي على أي بطاقة لعرض الملف الكامل.</p>
+    <a href="index.html" class="back-link">← العودة للرئيسية</a>
+  </div>
+</section>
+
+<section class="filters">
+  <div class="wrap">
+    <div class="filter-row" id="filter-row"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="count-line" id="count-line"></p>
+    <div class="students-grid" id="students-container"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">ع</div>
+        <div class="brand-name">علماء الغد</div>
+      </a>
+      <nav class="nav-links">
+        <a href="about.html">عن المدرسة</a>
+        <a href="achievements.html">الإنجازات</a>
+        <a href="news.html">الأخبار</a>
+      </nav>
+    </div>
+    <p class="foot-note">مدرسة علماء الغد — جميع الأسماء والنصوص هنا نموذجية وتحتاج استبدال بالمحتوى الفعلي، وتحتاج موافقة الطالبة وولي أمرها قبل النشر</p>
+  </div>
+</footer>
+
+<!-- ======================================================= -->
+<!-- ==========  منطقة البيانات: عدّلي هنا فقط  ============= -->
+<!-- ======================================================= -->
+<!-- ملاحظة مهمة: هذي القائمة نفسها (STUDENTS) موجودة أيضاً بملف student.html
+     لأن كل صفحة تحتاج تعرف بيانات الطالبات بشكل مستقل. إذا أضفتي طالبة هنا،
+     لا تنسي تضيفينها بنفس الشكل بالضبط داخل student.html أيضاً. -->
+<script>
+
+const CATEGORIES = [
+  { key:"الكل", تسمية:"الكل" },
+  { key:"تصميم", تسمية:"🎨 تصميم رقمي" },
+  { key:"برمجة", تسمية:"💻 برمجة" },
+  { key:"ذكاء اصطناعي", تسمية:"🤖 ذكاء اصطناعي" },
+  { key:"أمن سيبراني", تسمية:"🛡️ أمن سيبراني" },
+  { key:"فيديو", تسمية:"🎬 فيديو ومونتاج" },
+  { key:"مبادرات", تسمية:"💡 مشاريع ومبادرات" },
+];
+
+// id لازم يكون فريداً وبدون مسافات (يستخدم بالرابط) — الأحرف الإنجليزية أو أرقام أفضل
+const STUDENTS = [
+  { id:"student1", الاسم:"[اسم الطالبة]", الصف:"الثالث الثانوي", المجال:"برمجة" },
+  { id:"student2", الاسم:"[اسم الطالبة]", الصف:"الثاني الثانوي", المجال:"تصميم" },
+  { id:"student3", الاسم:"[اسم الطالبة]", الصف:"الثالث الثانوي", المجال:"ذكاء اصطناعي" },
+  { id:"student4", الاسم:"[اسم الطالبة]", الصف:"الأول الثانوي", المجال:"أمن سيبراني" },
+  { id:"student5", الاسم:"[اسم الطالبة]", الصف:"الثاني الثانوي", المجال:"فيديو" },
+  { id:"student6", الاسم:"[اسم الطالبة]", الصف:"الثالث الثانوي", المجال:"مبادرات" },
+  // لإضافة طالبة جديدة: انسخي كتلة كاملة، وحطي id فريد جديد مثل "student7"
+];
+
+let activeFilter = "الكل";
+
+function render(){
+  const filtered = activeFilter === "الكل" ? STUDENTS : STUDENTS.filter(s => s.المجال === activeFilter);
+  document.getElementById('count-line').textContent = `عدد الملفات المعروضة: ${filtered.length}`;
+  document.getElementById('students-container').innerHTML = filtered.map(s => `
+    <a class="student-card" href="student.html?id=${s.id}">
+      <div class="student-avatar">${s.الاسم.replace(/[\[\]]/g,'').trim().charAt(0) || '؟'}</div>
+      <div class="student-name">${s.الاسم}</div>
+      <div class="student-note">${s.الصف}</div>
+    </a>
+  `).join('');
+}
+
+document.getElementById('filter-row').innerHTML = CATEGORIES.map(c => `
+  <button class="f-btn ${c.key==='الكل' ? 'active' : ''}" data-key="${c.key}">${c.تسمية}</button>
+`).join('');
+
+document.querySelectorAll('.f-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.key;
+    render();
+  });
+});
+
+render();
+
+</script>
+
+</body>
+</html>
