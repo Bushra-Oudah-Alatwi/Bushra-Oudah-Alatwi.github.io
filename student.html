@@ -207,7 +207,7 @@ if (!data) {
 
   document.getElementById('p-works').innerHTML = data.الأعمال.map(w => `
     <div class="work-card">
-      <div class="work-title">${w.العنوان}</div>
+      <div class="work-title">${w.رابط ? `<a href="${w.رابط}" target="_blank" style="color:inherit;text-decoration:underline;">${w.العنوان} 🔗</a>` : w.العنوان}</div>
       <div class="work-desc">${w.الوصف}</div>
     </div>
   `).join('');
