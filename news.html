@@ -8,6 +8,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1B3B2F">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="علماء الغد">
 </head>
 <body>
 
@@ -68,12 +75,6 @@
 // حطي الأحدث بأول القائمة دائماً
 const NEWS = [
   {
-  اليوم: "05", الشهر: "سبتمبر",
-  العنوان: "خبر تجريبي للتدريب",
-  الوصف: "هذا خبر تجريبي بس للتأكد إن التعديل يشتغل صح.",
-  التصنيف: "تجربة",
-},
-  {
     اليوم: "28", الشهر: "أغسطس",
     العنوان: "إطلاق مبادرة \"مع القرآن\"",
     الوصف: "انطلقت هذا الأسبوع مبادرة \"مع القرآن\" بمشاركة أكثر من 80 طالبة من مختلف الصفوف.",
@@ -97,7 +98,12 @@ const NEWS = [
     الوصف: "احتفلت المدرسة باليوم الوطني بفقرات تراثية وطابور صباحي مميز.",
     التصنيف: "فعاليات",
   },
- 
+  {
+    اليوم: "10", الشهر: "سبتمبر",
+    العنوان: "انطلاق المسابقات والأنشطة الفصلية",
+    الوصف: "بدأ التسجيل بالمسابقات والأنشطة اللامنهجية لهذا الفصل الدراسي.",
+    التصنيف: "مسابقات",
+  },
   // لإضافة خبر جديد: انسخي كتلة كاملة من { إلى } وحطيها بأول القائمة
 ];
 
@@ -117,5 +123,12 @@ document.getElementById('news-container').innerHTML = NEWS.map(n => `
 
 </script>
 
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+  });
+}
+</script>
 </body>
 </html>

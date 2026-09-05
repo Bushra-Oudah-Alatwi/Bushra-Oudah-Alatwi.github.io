@@ -15,6 +15,13 @@
   .work-title{font-family:'Tajawal';font-weight:700;font-size:15px;color:var(--ink);margin-bottom:6px;}
   .work-desc{font-size:13.5px;color:var(--text-soft);}
 </style>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1B3B2F">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="علماء الغد">
 </head>
 <body>
 
@@ -115,12 +122,12 @@
 const STUDENTS_FULL = {
 
   student1: {
-    الاسم: "[بشرى العطوي]",
+    الاسم: "[اسم الطالبة]",
     الصف: "الصف الثالث الثانوي — مسار برمجة",
     نبذة: "طالبة شغوفة بالبرمجة وتطوير التطبيقات، شاركت في أكثر من مسابقة تقنية على مستوى المدرسة والمنطقة.",
     الأعمال: [
-      { العنوان:"تطبيق لتنظيم الواجبات المدرسية", الوصف:"...", رابط:"https://ضعي-الرابط-هنا" },
-{ العنوان:"موقع إلكتروني لنادي البرمجة", الوصف:"...", رابط:"https://ضعي-الرابط-هنا" },
+      { العنوان:"تطبيق لتنظيم الواجبات المدرسية", الوصف:"تطبيق بسيط يساعد الطالبات على تتبع الواجبات والمواعيد." },
+      { العنوان:"موقع إلكتروني لنادي البرمجة", الوصف:"صمّمت وبرمجت صفحة تعريفية لنادي البرمجة بالمدرسة." },
     ],
     المشاركات: [
       "المشاركة في هاكاثون الطالبات الإقليمي 2025",
@@ -207,7 +214,7 @@ if (!data) {
 
   document.getElementById('p-works').innerHTML = data.الأعمال.map(w => `
     <div class="work-card">
-      <div class="work-title">${w.رابط ? `<a href="${w.رابط}" target="_blank" style="color:inherit;text-decoration:underline;">${w.العنوان} 🔗</a>` : w.العنوان}</div>
+      <div class="work-title">${w.العنوان}</div>
       <div class="work-desc">${w.الوصف}</div>
     </div>
   `).join('');
@@ -222,5 +229,12 @@ if (!data) {
 
 </script>
 
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+  });
+}
+</script>
 </body>
 </html>

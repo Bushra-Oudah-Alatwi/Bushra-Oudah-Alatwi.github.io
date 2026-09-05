@@ -8,6 +8,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1B3B2F">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="علماء الغد">
 </head>
 <body>
 
@@ -81,7 +88,7 @@
       <p class="principal-quote" id="principal-quote">
         "نؤمن أن كل طالبة تحمل بداخلها عالِمة أو مبدعة أو قائدة، ودورنا أن نمنحها المساحة والثقة لتكتشف ذلك بنفسها. هذا الموقع هو مرآة لجهود بناتنا ومعلماتنا على مدار العام."
       </p>
-      <div class="principal-name">[اسم مديرة المدرسة]</div>
+      <div class="principal-name">البندري</div>
       <div class="principal-title">مديرة مدرسة علماء الغد</div>
     </div>
   </div>
@@ -222,5 +229,12 @@ document.getElementById('home-gallery-container').innerHTML = HOME_GALLERY.map(g
 
 </script>
 
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+  });
+}
+</script>
 </body>
 </html>

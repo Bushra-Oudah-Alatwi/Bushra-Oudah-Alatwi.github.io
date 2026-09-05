@@ -21,6 +21,13 @@
   .facility-card::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg, rgba(27,59,47,0.1), rgba(27,59,47,0.85));}
   .facility-card span{position:relative;z-index:1;}
 </style>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1B3B2F">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="علماء الغد">
 </head>
 <body>
 
@@ -150,8 +157,8 @@ const GOALS = [
 
 // الكادر — أضيفي/عدّلي حسب أعضاء الكادر الفعليين
 const STAFF = [
-  { الاسم:"[اسم مديرة المدرسة]", الدور:"مديرة المدرسة" },
-  { الاسم:"[اسم وكيلة الشؤون التعليمية]", الدور:"وكيلة الشؤون التعليمية" },
+  { الاسم:"البندري", الدور:"مديرة المدرسة" },
+  { الاسم:"ريهام", الدور:"وكيلة الشؤون التعليمية" },
   { الاسم:"[اسم وكيلة شؤون الطالبات]", الدور:"وكيلة شؤون الطالبات" },
   { الاسم:"[اسم رائدة النشاط]", الدور:"رائدة النشاط الطلابي" },
   { الاسم:"[اسم مشرفة الجودة]", الدور:"مشرفة الجودة والتطوير" },
@@ -191,5 +198,12 @@ document.getElementById('facility-container').innerHTML = FACILITIES.map(f => `
 
 </script>
 
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+  });
+}
+</script>
 </body>
 </html>

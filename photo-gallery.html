@@ -14,6 +14,13 @@
   .event-title{font-size:22px;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
   .event-count{font-size:13px;color:var(--text-soft);font-weight:400;}
 </style>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1B3B2F">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="علماء الغد">
 </head>
 <body>
 
@@ -111,5 +118,12 @@ document.getElementById('events-container').innerHTML = `<div class="wrap">` + E
 
 </script>
 
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+  });
+}
+</script>
 </body>
 </html>
