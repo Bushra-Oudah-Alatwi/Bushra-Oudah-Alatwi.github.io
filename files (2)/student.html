@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ملف الطالبة | علماء الغد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  @media(max-width:640px){.work-grid{grid-template-columns:1fr;}}
+  .work-card{background:#fff;border:1px solid rgba(27,59,47,0.08);border-radius:12px;padding:18px;}
+  .work-title{font-family:'Tajawal';font-weight:700;font-size:15px;color:var(--ink);margin-bottom:6px;}
+  .work-desc{font-size:13.5px;color:var(--text-soft);}
+</style>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1B3B2F">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="علماء الغد">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">ع</div>
+      <div class="brand-name">علماء الغد</div>
+    </a>
+    <nav class="nav-links">
+      <a href="about.html">عن المدرسة</a>
+      <a href="achievements.html">الإنجازات</a>
+      <a href="students.html" class="active">ملفات الطالبات</a>
+      <a href="initiatives.html">المبادرات</a>
+      <a href="digital-gallery.html">المعرض الرقمي</a>
+      <a href="photo-gallery.html">معرض الصور</a>
+      <a href="news.html">الأخبار</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <a href="students.html" class="back-link" style="margin-top:0;margin-bottom:16px;display:inline-block;">← كل ملفات الطالبات</a>
+    <div id="not-found" style="display:none;">
+      <h1>لم يتم العثور على هذا الملف</h1>
+      <p>تأكدي من الرابط، أو ارجعي لقائمة الطالبات.</p>
+    </div>
+    <div id="profile-header" style="display:none;" class="profile-head">
+      <div class="profile-avatar" id="p-avatar"></div>
+      <div>
+        <div class="eyebrow" id="p-grade"></div>
+        <h1 id="p-name"></h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="profile-body" style="display:none;">
+  <div class="wrap">
+
+    <div class="profile-block">
+      <h3>📝 نبذة</h3>
+      <p id="p-bio"></p>
+    </div>
+
+    <div class="profile-block">
+      <h3>💼 أعمالها ومشاريعها</h3>
+      <div class="work-grid" id="p-works"></div>
+    </div>
+
+    <div class="profile-block">
+      <h3>🎤 مشاركاتها</h3>
+      <ul id="p-participations" style="color:var(--text-soft);font-size:15px;padding-inline-start:20px;"></ul>
+    </div>
+
+    <div class="profile-block">
+      <h3>🏅 شهاداتها وإنجازاتها</h3>
+      <div class="tags-row" id="p-certs"></div>
+    </div>
+
+    <div class="profile-block">
+      <h3>⭐ أفضل أعمالها</h3>
+      <p id="p-best"></p>
+    </div>
+
+    <div class="profile-block">
+      <h3>💭 ماذا تعلّمت؟</h3>
+      <div class="reflection-box" id="p-reflection"></div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">ع</div>
+        <div class="brand-name">علماء الغد</div>
+      </a>
+      <nav class="nav-links">
+        <a href="students.html">كل الطالبات</a>
+        <a href="achievements.html">الإنجازات</a>
+      </nav>
+    </div>
+    <p class="foot-note">هذا الملف يُنشر بموافقة الطالبة وولي أمرها</p>
+  </div>
+</footer>
+
+<!-- ======================================================= -->
+<!-- ==========  منطقة البيانات: عدّلي هنا فقط  ============= -->
+<!-- ======================================================= -->
+<!-- تنبيه: انسخي أي طالبة أضفتيها بملف students.html وحطيها هنا أيضاً
+     بنفس الـ id، مع إضافة التفاصيل الكاملة (نبذة، أعمال، مشاركات...) -->
+<script>
+
+const STUDENTS_FULL = {
+
+  student1: {
+    الاسم: "[اسم الطالبة]",
+    الصف: "الصف الثالث الثانوي — مسار برمجة",
+    نبذة: "طالبة شغوفة بالبرمجة وتطوير التطبيقات، شاركت في أكثر من مسابقة تقنية على مستوى المدرسة والمنطقة.",
+    الأعمال: [
+      { العنوان:"تطبيق لتنظيم الواجبات المدرسية", الوصف:"تطبيق بسيط يساعد الطالبات على تتبع الواجبات والمواعيد." },
+      { العنوان:"موقع إلكتروني لنادي البرمجة", الوصف:"صمّمت وبرمجت صفحة تعريفية لنادي البرمجة بالمدرسة." },
+    ],
+    المشاركات: [
+      "المشاركة في هاكاثون الطالبات الإقليمي 2025",
+      "عضوة مؤسسة في نادي البرمجة بالمدرسة",
+    ],
+    الشهادات: ["شهادة إتمام دورة أساسيات بايثون", "شهادة مشاركة في هاكاثون 2025"],
+    أفضل_عمل: "تطبيق تنظيم الواجبات — تم عرضه في معرض علماء الغد السنوي ونال إعجاب الحضور.",
+    التأمل: "تعلّمت إن أكبر تحدي مو كتابة الكود نفسه، بل الصبر على حل المشاكل خطوة بخطوة، وإن الفشل بالتجربة الأولى مو نهاية الطريق.",
+  },
+
+  student2: {
+    الاسم: "[اسم الطالبة]",
+    الصف: "الصف الثاني الثانوي — مسار تصميم رقمي",
+    نبذة: "مهتمة بالتصميم الجرافيكي وهوية العلامات البصرية، شاركت في تصميم هوية عدة فعاليات مدرسية.",
+    الأعمال: [
+      { العنوان:"هوية بصرية لمعرض علماء الغد", الوصف:"صممت الشعار والبوسترات الخاصة بالمعرض السنوي." },
+    ],
+    المشاركات: ["مسؤولة التصميم في لجنة الأنشطة الطلابية"],
+    الشهادات: ["شهادة دورة تصميم بواسطة Canva للمبتدئات"],
+    أفضل_عمل: "الهوية البصرية لمعرض علماء الغد 2024.",
+    التأمل: "تعلّمت إن التصميم الجيد مو بس شكله حلو، لازم يوصل فكرة ويكون واضح لكل الناس.",
+  },
+
+  student3: {
+    الاسم: "[اسم الطالبة]",
+    الصف: "الصف الثالث الثانوي — مسار ذكاء اصطناعي",
+    نبذة: "مهتمة بتطبيقات الذكاء الاصطناعي في الحياة اليومية، وتعمل على مشروع تعرّف على الصور.",
+    الأعمال: [{ العنوان:"نموذج تصنيف صور بسيط", الوصف:"مشروع تعليمي لتصنيف الصور باستخدام نموذج تعلم آلي مبسّط." }],
+    المشاركات: ["المشاركة في معرض علماء الغد بمشروع الذكاء الاصطناعي"],
+    الشهادات: ["شهادة مشاركة في ورشة مقدمة في الذكاء الاصطناعي"],
+    أفضل_عمل: "نموذج تصنيف الصور — عرضته أمام لجنة تحكيم المعرض السنوي.",
+    التأمل: "تعلّمت إن الذكاء الاصطناعي أداة تحتاج فهم عميق للمشكلة قبل الحل، مو بس تقنية جاهزة.",
+  },
+
+  student4: {
+    الاسم: "[اسم الطالبة]",
+    الصف: "الصف الأول الثانوي — مسار أمن سيبراني",
+    نبذة: "شاركت في أسبوع الأمن السيبراني بالمدرسة وطورت اهتمامها بحماية البيانات والخصوصية الرقمية.",
+    الأعمال: [{ العنوان:"عرض توعوي عن أمان كلمات المرور", الوصف:"قدّمته لزميلاتها ضمن فعاليات أسبوع الأمن السيبراني." }],
+    المشاركات: ["المشاركة في أسبوع الأمن السيبراني 2025"],
+    الشهادات: ["شهادة مشاركة في أسبوع الأمن السيبراني"],
+    أفضل_عمل: "العرض التوعوي عن أمان كلمات المرور.",
+    التأمل: "تعلّمت إن أغلب المخاطر الرقمية بسيطة الحل، بس الناس ما تنتبه لها.",
+  },
+
+  student5: {
+    الاسم: "[اسم الطالبة]",
+    الصف: "الصف الثاني الثانوي — مسار فيديو ومونتاج",
+    نبذة: "توثّق فعاليات المدرسة بالفيديو وتحب سرد القصص بالصورة والصوت.",
+    الأعمال: [{ العنوان:"فيديو توثيقي لليوم الوطني بالمدرسة", الوصف:"مونتاج لأبرز لحظات احتفال المدرسة باليوم الوطني." }],
+    المشاركات: ["مسؤولة التوثيق المرئي بلجنة الإعلام الطلابي"],
+    الشهادات: ["شهادة تقدير من لجنة الأنشطة"],
+    أفضل_عمل: "فيديو اليوم الوطني — عُرض في الطابور الصباحي.",
+    التأمل: "تعلّمت إن أفضل الفيديوهات مو الأطول، بل اللي توصل إحساس اللحظة بأقل وقت ممكن.",
+  },
+
+  student6: {
+    الاسم: "[اسم الطالبة]",
+    الصف: "الصف الثالث الثانوي — مبادرات ومشاريع",
+    نبذة: "قائدة مبادرة طلابية مجتمعية، تهتم بربط المدرسة بالمجتمع المحيط.",
+    الأعمال: [{ العنوان:"مبادرة مع القرآن", الوصف:"أسست وقادت مبادرة أسبوعية لتحفيظ ومدارسة القرآن الكريم." }],
+    المشاركات: ["قائدة مبادرة \"مع القرآن\"", "عضوة في لجنة الأنشطة الطلابية"],
+    الشهادات: ["شهادة تقدير لقيادة مبادرة مجتمعية"],
+    أفضل_عمل: "إطلاق وإدارة مبادرة \"مع القرآن\" بمشاركة أكثر من 80 طالبة.",
+    التأمل: "تعلّمت إن القيادة مو إصدار أوامر، هي إنك تكوني أول وحدة تشتغل عشان الباقي يتحمسون معك.",
+  },
+
+};
+
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id');
+const data = STUDENTS_FULL[id];
+
+if (!data) {
+  document.getElementById('not-found').style.display = 'block';
+} else {
+  document.getElementById('profile-header').style.display = 'flex';
+  document.getElementById('profile-body').style.display = 'block';
+
+  document.getElementById('p-avatar').textContent = data.الاسم.replace(/[\[\]]/g,'').trim().charAt(0) || '؟';
+  document.getElementById('p-name').textContent = data.الاسم;
+  document.getElementById('p-grade').textContent = data.الصف;
+  document.getElementById('p-bio').textContent = data.نبذة;
+
+  document.getElementById('p-works').innerHTML = data.الأعمال.map(w => `
+    <div class="work-card">
+      <div class="work-title">${w.العنوان}</div>
+      <div class="work-desc">${w.الوصف}</div>
+    </div>
+  `).join('');
+
+  document.getElementById('p-participations').innerHTML = data.المشاركات.map(p => `<li>${p}</li>`).join('');
+  document.getElementById('p-certs').innerHTML = data.الشهادات.map(c => `<span class="tag-chip">🏅 ${c}</span>`).join('');
+  document.getElementById('p-best').textContent = data.أفضل_عمل;
+  document.getElementById('p-reflection').textContent = data.التأمل;
+
+  document.title = `${data.الاسم} | علماء الغد`;
+}
+
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+  });
+}
+</script>
+</body>
+</html>

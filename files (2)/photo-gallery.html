@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>معرض الصور | علماء الغد</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .event-block{margin-bottom:56px;}
+  .event-block:last-child{margin-bottom:0;}
+  .event-title{font-size:22px;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+  .event-count{font-size:13px;color:var(--text-soft);font-weight:400;}
+</style>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1B3B2F">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="علماء الغد">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">ع</div>
+      <div class="brand-name">علماء الغد</div>
+    </a>
+    <nav class="nav-links">
+      <a href="about.html">عن المدرسة</a>
+      <a href="achievements.html">الإنجازات</a>
+      <a href="students.html">ملفات الطالبات</a>
+      <a href="initiatives.html">المبادرات</a>
+      <a href="digital-gallery.html">المعرض الرقمي</a>
+      <a href="photo-gallery.html" class="active">معرض الصور</a>
+      <a href="news.html">الأخبار</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">📸 معرض الصور</div>
+    <h1>لحظات من فعالياتنا</h1>
+    <p>صور فعاليات المدرسة مرتبة حسب المناسبة والنشاط.</p>
+    <a href="index.html" class="back-link">← العودة للرئيسية</a>
+  </div>
+</section>
+
+<section class="section" id="events-container"></section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">ع</div>
+        <div class="brand-name">علماء الغد</div>
+      </a>
+      <nav class="nav-links">
+        <a href="news.html">الأخبار</a>
+        <a href="achievements.html">الإنجازات</a>
+      </nav>
+    </div>
+    <p class="foot-note">مدرسة علماء الغد — جميع الأسماء والنصوص هنا نموذجية وتحتاج استبدال بالمحتوى الفعلي</p>
+  </div>
+</footer>
+
+<!-- ======================================================= -->
+<!-- ==========  منطقة البيانات: عدّلي هنا فقط  ============= -->
+<!-- ======================================================= -->
+<script>
+
+// كل مناسبة عبارة عن عنوان + قائمة صور. حقل "صورة" اختياري لكل صورة
+const EVENTS = [
+  {
+    العنوان: "معرض علماء الغد السنوي",
+    الصور: [
+      { وصف:"جناح مشاريع الطالبات", صورة:"https://images.unsplash.com/photo-1608037222022-62649819f8aa?fm=jpg&q=60&w=600&auto=format&fit=crop" },
+      { وصف:"حفل الافتتاح", صورة:"" },
+      { وصف:"تكريم المتميزات", صورة:"" },
+    ],
+  },
+  {
+    العنوان: "أسبوع الأمن السيبراني",
+    الصور: [
+      { وصف:"ورشة توعوية", صورة:"" },
+      { وصف:"مسابقة الأمن السيبراني", صورة:"" },
+      { وصف:"ركن التوعية بالممر", صورة:"" },
+    ],
+  },
+  {
+    العنوان: "اليوم الوطني",
+    الصور: [
+      { وصف:"طابور الاحتفال الصباحي", صورة:"" },
+      { وصف:"معرض التراث الوطني", صورة:"" },
+      { وصف:"فقرات طالبات المرحلة الابتدائية", صورة:"" },
+    ],
+  },
+  // لإضافة مناسبة جديدة: انسخي كتلة كاملة من { إلى } وحطيها بالمكان المناسب
+];
+
+document.getElementById('events-container').innerHTML = `<div class="wrap">` + EVENTS.map(ev => `
+  <div class="event-block">
+    <h2 class="event-title">🎉 ${ev.العنوان} <span class="event-count">(${ev.الصور.length} صورة)</span></h2>
+    <div class="gallery-grid cols-3">
+      ${ev.الصور.map(p => `
+        <div class="g-card" style="${p.صورة ? `background-image:url('${p.صورة}')` : 'background:linear-gradient(160deg,#234A3A,#1B3B2F)'}">
+          <span>${p.وصف}</span>
+        </div>
+      `).join('')}
+    </div>
+  </div>
+`).join('') + `</div>`;
+
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('service-worker.js').catch(()=>{});
+  });
+}
+</script>
+</body>
+</html>
