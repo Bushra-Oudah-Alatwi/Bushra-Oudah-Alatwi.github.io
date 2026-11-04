@@ -62,6 +62,17 @@
   var links = it.links && it.links.length ? win("links.txt", '<div class="links">' + it.links.map(function (l) {
     return '<a class="btn" href="' + esc(l.url) + '"' + (/^https?:/.test(l.url) ? ' target="_blank" rel="noopener"' : "") + ">" + esc(l.label) + " ←</a>";
   }).join("") + "</div>") : "";
+  function reports(list) {
+    return '<div class="count">' + 'عدد التقارير المنفذة: ' + ar(list.length) + '</div>' + list.map(function (r, k) {
+      var base = "../../shawahid/" + r.folder + "/";
+      var ph = (r.photos || []).map(function (f) { return '<figure data-src="' + base + f + '"><img loading="lazy" src="' + base + f + '" alt="شاهد ' + esc(r.strategy) + '"></figure>'; }).join("");
+      return win("report-" + ar(list.length - k) + ".txt",
+        '<div class="rep"><span class="rep-n">' + ar(list.length - k) + '</span><h2>' + esc(r.strategy) + '</h2></div>' +
+        '<dl class="facts"><div><dt>الصف</dt><dd>' + esc(r.grade) + '</dd></div><div><dt>الدرس</dt><dd>' + esc(r.lesson) + '</dd></div><div><dt>تاريخ التنفيذ</dt><dd>' + esc(r.date) + '</dd></div></dl>' +
+        (ph ? '<div class="gallery rep-gal">' + ph + '</div>' : '') +
+        '<div class="links" style="margin-top:14px"><a class="btn" href="' + base + '">عرض الشواهد كاملة ←</a></div>');
+    }).join("");
+  }
   var prev = D.items[idx - 1], next = D.items[idx + 1];
   var pager = '<nav class="pager">' +
     (prev ? '<a href="../' + prev.id + '/"><small>→ السابق</small>' + esc(prev.title) + "</a>" : '<a href="../"><small>→ الرئيسية</small>فهرس الملف</a>') +
@@ -71,7 +82,7 @@
     '<div class="hero"><span class="tag"><span class="dot"></span>البند ' + ar(it.n) + '</span><h1>' + esc(it.title) + "</h1>" +
     '<div class="meta"><span>المعلمة: <b>' + esc(D.teacher) + '</b></span><span>المادة: <b>' + esc(D.subject) + "</b></span></div></div>" +
     win("about.txt", "<p>" + esc(it.intro) + "</p>" + (pts ? '<div style="height:12px"></div>' + pts : "")) +
-    win("shawahid/", '<div class="gallery" id="gal"></div><div class="empty" id="empty"><span class="cursor"></span><span>جارٍ تحميل الشواهد…</span></div>') +
+    (it.reports ? reports(it.reports) : win("shawahid/", '<div class="gallery" id="gal"></div><div class="empty" id="empty"><span class="cursor"></span><span>جارٍ تحميل الشواهد…</span></div>')) +
     links + pager + foot + '<div class="lb" id="lb"><button aria-label="إغلاق">✕</button><img alt=""></div>';
 
   // load evidence photos named 1.jpg, 2.png ... from this folder
@@ -103,5 +114,6 @@
     else empty.innerHTML = '<span class="cursor"></span><span>الشواهد قيد الإضافة</span>';
   }
   lb.onclick = function () { lb.classList.remove("on"); };
-  step(1);
+  document.querySelectorAll("figure[data-src]").forEach(function (f) { f.onclick = function () { lb.querySelector("img").src = f.dataset.src; lb.classList.add("on"); }; });
+  if (!it.reports) step(1);
 })();
