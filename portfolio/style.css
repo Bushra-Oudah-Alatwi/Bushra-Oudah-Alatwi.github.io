@@ -4,7 +4,7 @@
   --plum:#4b2a7b; --plum-soft:#ece5f6; --teal:#2f7f86; --teal-soft:#e2f1f2; --gold:#b48a3c;
   --trace:#4b2a7b; --trace-op:.07;
   --shadow:0 10px 30px -12px rgba(52,30,90,.22);
-  --font:"Tajawal",Tahoma,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --font:"Fanan","Amiri",serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#14111c; --bg2:#101820; --surface:#1e1a29ee; --surface-solid:#1e1a29;
@@ -20,7 +20,7 @@
 *{box-sizing:border-box}
 html,body{margin:0}
 body{
-  font-family:var(--font); color:var(--ink); line-height:1.8; min-height:100vh;
+  font-family:var(--font); color:var(--ink); line-height:1.9; font-size:17px; min-height:100vh;
   background:linear-gradient(160deg,var(--bg) 0%,var(--bg2) 100%) fixed;
   padding:0 max(16px,env(safe-area-inset-left)) 48px max(16px,env(safe-area-inset-right));
   position:relative; overflow-x:hidden;
@@ -49,8 +49,8 @@ img{max-width:100%}
   border-radius:999px;padding:3px 12px;font-weight:500}
 .tag .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:blink 2.4s infinite}
 @keyframes blink{50%{opacity:.25}}
-h1{font-size:clamp(26px,5vw,40px);line-height:1.35;margin:12px 0 6px;color:var(--plum);font-weight:900;text-wrap:balance}
-.meta{color:var(--muted);font-size:14.5px;display:flex;flex-wrap:wrap;gap:4px 18px}
+h1{font-size:clamp(26px,5vw,40px);line-height:1.35;margin:12px 0 6px;color:var(--plum);font-weight:700;text-wrap:balance}
+.meta{color:var(--muted);font-size:16px;display:flex;flex-wrap:wrap;gap:4px 18px}
 .meta span b{color:var(--ink);font-weight:500}
 
 /* window cards */
@@ -106,7 +106,7 @@ ul.points li::before{content:"‹";position:absolute;inset-inline-start:13px;top
 .rep-n{flex:none;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--teal);color:#fff;font-weight:700}
 .facts{margin:0 0 14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}
 .facts div{background:var(--plum-soft);border-radius:10px;padding:8px 12px}
-.facts dt{font-size:12.5px;color:var(--muted)}.facts dd{margin:0;font-weight:500;font-size:15px}
+.facts dt{font-size:14px;color:var(--muted)}.facts dd{margin:0;font-weight:500;font-size:15px}
 .rep-about{font-size:16px;margin:0 0 12px}
 .rep-sec{border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--surface-solid)}
 .rep-sec summary{cursor:pointer;padding:9px 14px;font-weight:700;color:var(--teal);list-style:none}
