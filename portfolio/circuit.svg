@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M0 40h60l20 20h70"/><circle cx="154" cy="60" r="5"/>
+<path d="M40 0v30l25 25"/>
+<path d="M200 0v50l30 30h60"/><circle cx="294" cy="80" r="5"/>
+<path d="M360 120h-50l-20 20v60"/><circle cx="290" cy="204" r="5"/>
+<path d="M0 150h40l30-30h50l20 20h40"/><circle cx="184" cy="140" r="5"/>
+<path d="M120 360v-60l-30-30v-40"/><circle cx="90" cy="226" r="5"/>
+<path d="M0 260h30l20 20h40"/>
+<path d="M360 300h-70l-20-20h-60l-20 20v60"/><circle cx="206" cy="276" r="5"/>
+<path d="M230 200h-40l-20 20v30"/><circle cx="170" cy="254" r="5"/>
+<path d="M330 0v20l-20 20"/><circle cx="307" cy="43" r="4"/>
+<rect x="250" y="150" width="34" height="34" rx="4"/><path d="M256 150v-8M267 150v-8M278 150v-8M256 184v8M267 184v8M278 184v8"/>
+<rect x="40" y="190" width="28" height="28" rx="4"/><path d="M40 198h-8M40 210h-8M68 198h8M68 210h8"/>
+</svg>
