@@ -107,6 +107,14 @@ ul.points li::before{content:"‹";position:absolute;inset-inline-start:13px;top
 .facts{margin:0 0 14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}
 .facts div{background:var(--plum-soft);border-radius:10px;padding:8px 12px}
 .facts dt{font-size:12.5px;color:var(--muted)}.facts dd{margin:0;font-weight:500;font-size:15px}
+.rep-about{font-size:16px;margin:0 0 12px}
+.rep-sec{border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--surface-solid)}
+.rep-sec summary{cursor:pointer;padding:9px 14px;font-weight:700;color:var(--teal);list-style:none}
+.rep-sec summary::-webkit-details-marker{display:none}
+.rep-sec summary::before{content:"+";display:inline-block;width:18px;font-family:var(--mono)}
+.rep-sec[open] summary::before{content:"−"}
+.rep-sec ol{list-style:arabic-indic}.rep-sec ul,.rep-sec ol{margin:0;padding:0 34px 12px 14px}.rep-sec p{margin:0;padding:0 16px 12px}
+.rep-h{font-size:15px;color:var(--muted);margin:14px 0 8px}
 .rep-gal{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
 footer{margin-top:34px;text-align:center;color:var(--muted);font-size:13px}
 footer code{font-family:var(--mono)}

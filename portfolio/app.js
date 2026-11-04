@@ -62,6 +62,11 @@
   var links = it.links && it.links.length ? win("links.txt", '<div class="links">' + it.links.map(function (l) {
     return '<a class="btn" href="' + esc(l.url) + '"' + (/^https?:/.test(l.url) ? ' target="_blank" rel="noopener"' : "") + ">" + esc(l.label) + " ←</a>";
   }).join("") + "</div>") : "";
+  function sec(t, arr, ol) {
+    if (!arr || !arr.length) return "";
+    var tag = ol ? "ol" : "ul";
+    return '<details class="rep-sec"><summary>' + t + '</summary><' + tag + '>' + arr.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + '</' + tag + '></details>';
+  }
   function reports(list) {
     return '<div class="count">' + 'عدد التقارير المنفذة: ' + ar(list.length) + '</div>' + list.map(function (r, k) {
       var base = "../../shawahid/" + r.folder + "/";
@@ -69,7 +74,10 @@
       return win("report-" + ar(list.length - k) + ".txt",
         '<div class="rep"><span class="rep-n">' + ar(list.length - k) + '</span><h2>' + esc(r.strategy) + '</h2></div>' +
         '<dl class="facts"><div><dt>الصف</dt><dd>' + esc(r.grade) + '</dd></div><div><dt>الدرس</dt><dd>' + esc(r.lesson) + '</dd></div><div><dt>تاريخ التنفيذ</dt><dd>' + esc(r.date) + '</dd></div></dl>' +
-        (ph ? '<div class="gallery rep-gal">' + ph + '</div>' : '') +
+        (r.about ? '<p class="rep-about">' + esc(r.about) + '</p>' : '') +
+        sec('أهداف تنفيذ الاستراتيجية', r.goals) + sec('خطوات التنفيذ', r.steps, true) +
+        (r.results ? '<details class="rep-sec"><summary>نتائج التنفيذ</summary><p>' + esc(r.results) + '</p></details>' : '') +
+        (ph ? '<h3 class="rep-h">الشواهد</h3><div class="gallery rep-gal">' + ph + '</div>' : '') +
         '<div class="links" style="margin-top:14px"><a class="btn" href="' + base + '">عرض الشواهد كاملة ←</a></div>');
     }).join("");
   }
