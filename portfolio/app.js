@@ -36,7 +36,7 @@
 
   var top = function (path) {
     return '<div class="top"><a href="' + root + '"><img class="logo" src="' + root + 'logo.png" alt="علماء الغد"></a>' +
-      '<span class="crumb">~/<b>portfolio</b>' + (path ? "/" + path : "") + "</span></div>";
+      '<span class="crumb">' + (path ? '<a href="' + root + '">ملف الإنجاز</a> ‹ <b>' + esc((D.items.find(function (x) { return x.id === path; }) || {}).title || "") + "</b>" : "<b>ملف الإنجاز</b>") + "</span></div>";
   };
   var foot = '<footer>ملف إنجاز المعلمة ' + esc(D.teacher) + " · " + esc(D.subject) + " · " + esc(D.school) + " · " + esc(D.year) + "</footer>";
 
@@ -49,7 +49,7 @@
     app.innerHTML = top("") +
       '<div class="hero"><span class="tag"><span class="dot"></span>ملف الإنجاز الرقمي</span><h1>ملف إنجاز المعلمة ' + esc(D.teacher) + "</h1>" +
       '<div class="meta"><span>المادة: <b>' + esc(D.subject) + '</b></span><span>المدرسة: <b>' + esc(D.school) + '</b></span><span>العام: <b>' + esc(D.year) + "</b></span></div></div>" +
-      win("index.html", '<div class="grid">' + tiles + "</div>") + foot;
+      win("فهرس الملف", '<div class="grid">' + tiles + "</div>") + foot;
     return;
   }
 
@@ -59,7 +59,7 @@
   document.title = it.title + " | ملف الإنجاز";
 
   var pts = it.points && it.points.length ? '<ul class="points">' + it.points.map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("") + "</ul>" : "";
-  var links = it.links && it.links.length ? win("links.txt", '<div class="links">' + it.links.map(function (l) {
+  var links = it.links && it.links.length ? win("روابط", '<div class="links">' + it.links.map(function (l) {
     return '<a class="btn" href="' + esc(l.url) + '"' + (/^https?:/.test(l.url) ? ' target="_blank" rel="noopener"' : "") + ">" + esc(l.label) + " ←</a>";
   }).join("") + "</div>") : "";
   function sec(t, arr, ol) {
@@ -71,7 +71,7 @@
     return '<div class="count">' + 'عدد التقارير المنفذة: ' + ar(list.length) + '</div>' + list.map(function (r, k) {
       var base = "../../shawahid/" + r.folder + "/";
       var ph = (r.photos || []).map(function (f) { return '<figure data-src="' + base + f + '"><img loading="lazy" src="' + base + f + '" alt="شاهد ' + esc(r.strategy) + '"></figure>'; }).join("");
-      return win("report-" + ar(list.length - k) + ".txt",
+      return win("التقرير " + ar(list.length - k),
         '<div class="rep"><span class="rep-n">' + ar(list.length - k) + '</span><h2>' + esc(r.strategy) + '</h2></div>' +
         '<dl class="facts"><div><dt>الصف</dt><dd>' + esc(r.grade) + '</dd></div><div><dt>الدرس</dt><dd>' + esc(r.lesson) + '</dd></div><div><dt>تاريخ التنفيذ</dt><dd>' + esc(r.date) + '</dd></div></dl>' +
         (r.about ? '<p class="rep-about">' + esc(r.about) + '</p>' : '') +
@@ -89,8 +89,8 @@
   app.innerHTML = top(it.id) +
     '<div class="hero"><span class="tag"><span class="dot"></span>البند ' + ar(it.n) + '</span><h1>' + esc(it.title) + "</h1>" +
     '<div class="meta"><span>المعلمة: <b>' + esc(D.teacher) + '</b></span><span>المادة: <b>' + esc(D.subject) + "</b></span></div></div>" +
-    win("about.txt", "<p>" + esc(it.intro) + "</p>" + (pts ? '<div style="height:12px"></div>' + pts : "")) +
-    (it.reports ? reports(it.reports) : win("shawahid/", '<div class="gallery" id="gal"></div><div class="empty" id="empty"><span class="cursor"></span><span>جارٍ تحميل الشواهد…</span></div>')) +
+    win("التعريف بالبند", "<p>" + esc(it.intro) + "</p>" + (pts ? '<div style="height:12px"></div>' + pts : "")) +
+    (it.reports ? reports(it.reports) : win("الشواهد", '<div class="gallery" id="gal"></div><div class="empty" id="empty"><span class="cursor"></span><span>جارٍ تحميل الشواهد…</span></div>')) +
     links + pager + foot + '<div class="lb" id="lb"><button aria-label="إغلاق">✕</button><img alt=""></div>';
 
   // load evidence photos named 1.jpg, 2.png ... from this folder
