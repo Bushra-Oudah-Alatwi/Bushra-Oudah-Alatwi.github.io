@@ -81,6 +81,20 @@
         '<div class="links" style="margin-top:14px"><a class="btn" href="' + base + '">عرض الشواهد كاملة ←</a></div>');
     }).join("");
   }
+  function visits(list) {
+    function fact(t, v) { return v ? '<div><dt>' + t + '</dt><dd>' + esc(v) + '</dd></div>' : ''; }
+    function para(t, v) { return v ? '<details class="rep-sec" open><summary>' + t + '</summary><p>' + esc(v) + '</p></details>' : ''; }
+    return '<div class="count">عدد الزيارات: ' + ar(list.length) + '</div>' + list.map(function (r, k) {
+      var base = "../../shawahid/" + r.folder + "/";
+      var ph = (r.photos || []).map(function (f) { return '<figure data-src="' + base + f + '"><img loading="lazy" src="' + base + f + '" alt="شاهد ' + esc(r.title) + '"></figure>'; }).join("");
+      return win("الزيارة " + ar(list.length - k),
+        '<div class="rep"><span class="rep-n">' + ar(list.length - k) + '</span><h2>' + esc(r.title) + '</h2></div>' +
+        '<dl class="facts">' + fact('المعلمة المزورة', r.teacher) + fact('المادة', r.subject) + fact('الصف والفصل', r.grade) + fact('موضوع الدرس', r.lesson) + fact('تاريخ الزيارة', r.date) + fact('نوع الشاهد', r.kind) + '</dl>' +
+        (r.about ? '<p class="rep-about">' + esc(r.about) + '</p>' : '') +
+        para('الهدف من الزيارة', r.goal) + para('عناصر التقويم', r.rating) + para('الملاحظات الإيجابية', r.notes) + para('التوصيات', r.rec) +
+        (ph ? '<h3 class="rep-h">الشواهد</h3><div class="gallery rep-gal">' + ph + '</div>' : ''));
+    }).join("");
+  }
   var prev = D.items[idx - 1], next = D.items[idx + 1];
   var pager = '<nav class="pager">' +
     (prev ? '<a href="../' + prev.id + '/"><small>→ السابق</small>' + esc(prev.title) + "</a>" : '<a href="../"><small>→ الرئيسية</small>فهرس الملف</a>') +
@@ -90,7 +104,7 @@
     '<div class="hero"><span class="tag"><span class="dot"></span>البند ' + ar(it.n) + '</span><h1>' + esc(it.title) + "</h1>" +
     '<div class="meta"><span>المعلمة: <b>' + esc(D.teacher) + '</b></span><span>المادة: <b>' + esc(D.subject) + "</b></span></div></div>" +
     win("التعريف بالبند", "<p>" + esc(it.intro) + "</p>" + (pts ? '<div style="height:12px"></div>' + pts : "")) +
-    (it.reports ? reports(it.reports) : win("الشواهد", '<div class="gallery" id="gal"></div><div class="empty" id="empty"><span class="cursor"></span><span>جارٍ تحميل الشواهد…</span></div>')) +
+    (it.reports ? reports(it.reports) : it.visits ? visits(it.visits) : win("الشواهد", '<div class="gallery" id="gal"></div><div class="empty" id="empty"><span class="cursor"></span><span>جارٍ تحميل الشواهد…</span></div>')) +
     links + pager + foot + '<div class="lb" id="lb"><button aria-label="إغلاق">✕</button><img alt=""></div>';
 
   // load evidence photos named 1.jpg, 2.png ... from this folder
@@ -123,5 +137,5 @@
   }
   lb.onclick = function () { lb.classList.remove("on"); };
   document.querySelectorAll("figure[data-src]").forEach(function (f) { f.onclick = function () { lb.querySelector("img").src = f.dataset.src; lb.classList.add("on"); }; });
-  if (!it.reports) step(1);
+  if (!it.reports && !it.visits) step(1);
 })();
