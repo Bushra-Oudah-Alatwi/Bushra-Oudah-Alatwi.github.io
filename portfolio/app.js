@@ -113,8 +113,8 @@
     return '<div class="count">عدد الدورات: ' + ar(list.length) + '</div>' + list.map(function (r, k) {
       var base = "../../shawahid/" + r.folder + "/";
       var ph = (r.photos || []).map(function (f) { return '<figure data-src="' + base + f + '"><img loading="lazy" src="' + base + f + '" alt="شهادة ' + esc(r.name) + '"></figure>'; }).join("");
-      return win("الدورة " + ar(list.length - k),
-        '<div class="rep"><span class="rep-n">' + ar(list.length - k) + '</span><h2>' + esc(r.name) + '</h2></div>' +
+      return win("الدورة " + ar(k + 1),
+        '<div class="rep"><span class="rep-n">' + ar(k + 1) + '</span><h2>' + esc(r.name) + '</h2></div>' +
         '<dl class="facts">' + fact('الجهة المانحة', r.provider) + fact('نوع الشهادة', r.kind) + fact('التاريخ', r.date) + fact('عدد الساعات', r.hours) + '</dl>' +
         (r.about ? '<p class="rep-about">' + esc(r.about) + '</p>' : '') +
         (ph ? '<h3 class="rep-h">الشهادة</h3><div class="gallery rep-gal">' + ph + '</div>' : ''));
