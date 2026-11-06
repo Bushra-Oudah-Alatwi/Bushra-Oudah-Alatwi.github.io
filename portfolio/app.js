@@ -164,7 +164,7 @@
     var base = "../../shawahid/" + t.folder + "/";
     var done = t.quizzes.filter(function (q) { return q.done; }).length;
     return win("جدول مواعيد الاختبارات القصيرة",
-      '<dl class="facts"><div><dt>عدد الاختبارات</dt><dd>' + ar(t.quizzes.length) + ' اختبارات لكل صف</dd></div><div><dt>المنفّذ</dt><dd>' + ar(done) + ' من ' + ar(t.quizzes.length) + '</dd></div><div><dt>المدة</dt><dd>١٥ دقيقة في بداية الحصة</dd></div></dl>' +
+      '<dl class="facts"><div><dt>عدد الاختبارات</dt><dd>' + ar(t.quizzes.length) + ' اختبارات لكل صف</dd></div><div><dt>المنفّذ</dt><dd>' + ar(done) + ' من ' + ar(t.quizzes.length) + '</dd></div><div><dt>طريقة التنفيذ</dt><dd>سؤالان عبر منصة كلاسيرا</dd></div></dl>' +
       '<div class="gallery rep-gal init-gal plan-gal"><figure data-src="' + base + t.img + '"><img loading="lazy" src="' + base + t.img + '" alt="خطة الاختبارات القصيرة"></figure></div>' +
       '<div class="links" style="margin-top:14px"><a class="btn" href="' + base + t.pdf + '" target="_blank" rel="noopener">تحميل الخطة (PDF) ←</a></div>') +
       t.quizzes.map(function (q, k) {
