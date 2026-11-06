@@ -131,7 +131,7 @@
         (r.about ? '<p class="rep-about">' + esc(r.about) + '</p>' : '') +
         sec('أهداف المبادرة', r.goals) + sec(r.itemsTitle || 'المحتوى', r.items, true) +
         (ph ? '<h3 class="rep-h">الشواهد</h3>' + (r.note ? '<p class="rep-h" style="margin-top:0">' + esc(r.note) + '</p>' : '') + '<div class="gallery rep-gal init-gal">' + ph + '</div>' : '') +
-        (r.file ? '<div class="links" style="margin-top:14px"><a class="btn" href="' + base + r.file + '" target="_blank" rel="noopener">فتح الدليل كاملًا (PDF) ←</a></div>' : ''));
+        (r.file ? '<div class="links" style="margin-top:14px"><a class="btn" href="' + base + r.file + '" target="_blank" rel="noopener">' + esc(r.fileLabel || 'فتح الدليل كاملًا (PDF)') + ' ←</a></div>' : ''));
     }).join("");
   }
   function plans(list) {
