@@ -132,6 +132,7 @@
         sec('أهداف المبادرة', r.goals) + (r.items ? sec(r.itemsTitle || 'المحتوى', r.items, true) : '') +
         ((r.videos||[]).length ? '<h3 class="rep-h">مقطع الفعالية</h3>' + r.videos.map(function (v) { return '<video class="rep-vid" controls playsinline preload="metadata" poster="' + base + v.replace(/\.mp4$/, '-poster.jpg') + '" src="' + base + v + '"></video>'; }).join('') : '') +
         (ph ? '<h3 class="rep-h">الشواهد</h3>' + (r.note ? '<p class="rep-h" style="margin-top:0">' + esc(r.note) + '</p>' : '') + '<div class="gallery rep-gal init-gal">' + ph + '</div>' : '') +
+        (r.link ? '<div class="links" style="margin-top:14px"><a class="btn" href="' + esc(r.link) + '" target="_blank" rel="noopener">' + esc(r.linkLabel || 'فتح الرابط') + ' ←</a></div>' : '') +
         (r.file ? '<div class="links" style="margin-top:14px"><a class="btn" href="' + base + r.file + '" target="_blank" rel="noopener">' + esc(r.fileLabel || 'فتح الدليل كاملًا (PDF)') + ' ←</a></div>' : ''));
     }).join("");
   }
