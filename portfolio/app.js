@@ -134,6 +134,24 @@
         (r.file ? '<div class="links" style="margin-top:14px"><a class="btn" href="' + base + r.file + '" target="_blank" rel="noopener">فتح الدليل كاملًا (PDF) ←</a></div>' : ''));
     }).join("");
   }
+  function plans(list) {
+    var ORD = ['الأول','الثاني','الثالث','الرابع','الخامس','السادس','السابع','الثامن','التاسع','العاشر','الحادي عشر','الثاني عشر','الثالث عشر','الرابع عشر','الخامس عشر','السادس عشر','السابع عشر','الثامن عشر','التاسع عشر','العشرون'];
+    function fact(t, v) { return v ? '<div><dt>' + t + '</dt><dd>' + esc(v) + '</dd></div>' : ''; }
+    return '<div class="count">عدد المقررات: ' + ar(list.length) + '</div>' + list.map(function (p, k) {
+      var base = "../../shawahid/" + p.folder + "/";
+      var weeks = p.weeks.map(function (w) {
+        var t = w.items.join(' '), cls = /اختبار|مراجعة/.test(t) ? ' ex' : /مشروع/.test(t) ? ' pr' : '';
+        return '<div class="pw' + cls + '"><div class="pw-h"><b>الأسبوع ' + ORD[w.w - 1] + '</b><span>' + esc(ar(w.range)) + 'هـ</span></div><ul>' +
+          w.items.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' + (w.note ? '<div class="pw-n">' + esc(w.note) + '</div>' : '') + '</div>';
+      }).join('');
+      return win("المقرر " + ar(k + 1),
+        '<div class="rep"><span class="rep-n">' + ar(k + 1) + '</span><h2>' + esc(p.subject) + ' – ' + esc(p.grade) + '</h2></div>' +
+        '<dl class="facts">' + fact('المادة', p.subject) + fact('الصف', p.grade) + fact('الفصل الدراسي', 'الأول – ١٤٤٨هـ') + fact('عدد الأسابيع', ar(p.weeks.length) + ' أسبوعًا') + '</dl>' +
+        '<details class="rep-sec"><summary>التوزيع أسبوعًا بأسبوع</summary><div class="pweeks">' + weeks + '</div></details>' +
+        '<h3 class="rep-h">الشاهد</h3><div class="gallery rep-gal init-gal plan-gal"><figure data-src="' + base + p.slug + '.jpg"><img loading="lazy" src="' + base + p.slug + '.jpg" alt="توزيع ' + esc(p.grade) + '"></figure></div>' +
+        '<div class="links" style="margin-top:14px"><a class="btn" href="' + base + p.slug + '.pdf" target="_blank" rel="noopener">تحميل التوزيع (PDF) ←</a></div>');
+    }).join("");
+  }
   var prev = D.items[idx - 1], next = D.items[idx + 1];
   var pager = '<nav class="pager">' +
     (prev ? '<a href="../' + prev.id + '/"><small>→ السابق</small>' + esc(prev.title) + "</a>" : '<a href="../"><small>→ الرئيسية</small>فهرس الملف</a>') +
@@ -143,7 +161,7 @@
     '<div class="hero"><span class="tag"><span class="dot"></span>البند ' + ar(it.n) + '</span><h1>' + esc(it.title) + "</h1>" +
     '<div class="meta"><span>المعلمة: <b>' + esc(D.teacher) + '</b></span><span>المادة: <b>' + esc(D.subject) + "</b></span></div></div>" +
     win("التعريف بالبند", "<p>" + esc(it.intro) + "</p>" + (pts ? '<div style="height:12px"></div>' + pts : "")) +
-    (it.inits ? inits(it.inits) : it.courses ? courses(it.courses) : it.reports ? reports(it.reports) : it.visits ? visits(it.visits) : it.sessions ? sessions(it.sessions, 'جلسات نفّذتُها') + (it.attended ? sessions(it.attended, 'جلسات نفّذتها زميلاتي وشاركتُ فيها') : '') : win("الشواهد", '<div class="gallery" id="gal"></div><div class="empty" id="empty"><span class="cursor"></span><span>جارٍ تحميل الشواهد…</span></div>')) +
+    (it.plans ? plans(it.plans) : it.inits ? inits(it.inits) : it.courses ? courses(it.courses) : it.reports ? reports(it.reports) : it.visits ? visits(it.visits) : it.sessions ? sessions(it.sessions, 'جلسات نفّذتُها') + (it.attended ? sessions(it.attended, 'جلسات نفّذتها زميلاتي وشاركتُ فيها') : '') : win("الشواهد", '<div class="gallery" id="gal"></div><div class="empty" id="empty"><span class="cursor"></span><span>جارٍ تحميل الشواهد…</span></div>')) +
     links + pager + foot + '<div class="lb" id="lb"><button aria-label="إغلاق">✕</button><img alt=""></div>';
 
   // load evidence photos named 1.jpg, 2.png ... from this folder
@@ -176,5 +194,5 @@
   }
   lb.onclick = function () { lb.classList.remove("on"); };
   document.querySelectorAll("figure[data-src]").forEach(function (f) { f.onclick = function () { lb.querySelector("img").src = f.dataset.src; lb.classList.add("on"); }; });
-  if (!it.reports && !it.visits && !it.sessions && !it.courses && !it.inits) step(1);
+  if (!it.reports && !it.visits && !it.sessions && !it.courses && !it.inits && !it.plans) step(1);
 })();
