@@ -136,3 +136,5 @@ footer code{font-family:var(--mono)}
 .pw-n{background:var(--plum-soft);color:var(--plum);font-size:14px;padding:2px 10px;font-weight:700}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pw-h{color:#14111c}}
 :root[data-theme="dark"] .pw-h{color:#14111c}
+
+.rep-vid{display:block;width:100%;max-height:70vh;border-radius:12px;background:#000;margin-bottom:6px}

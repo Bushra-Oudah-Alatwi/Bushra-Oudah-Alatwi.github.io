@@ -129,7 +129,8 @@
         '<div class="rep"><span class="rep-n">' + ar(k + 1) + '</span><h2>' + esc(r.name) + '</h2></div>' +
         '<dl class="facts">' + fact('العنوان', r.sub) + fact('نوع المبادرة', r.kind) + fact('الفئة المستفيدة', r.audience) + fact('الإعداد', r.by) + '</dl>' +
         (r.about ? '<p class="rep-about">' + esc(r.about) + '</p>' : '') +
-        sec('أهداف المبادرة', r.goals) + sec(r.itemsTitle || 'المحتوى', r.items, true) +
+        sec('أهداف المبادرة', r.goals) + (r.items ? sec(r.itemsTitle || 'المحتوى', r.items, true) : '') +
+        ((r.videos||[]).length ? '<h3 class="rep-h">مقطع الفعالية</h3>' + r.videos.map(function (v) { return '<video class="rep-vid" controls playsinline preload="metadata" poster="' + base + v.replace(/\.mp4$/, '-poster.jpg') + '" src="' + base + v + '"></video>'; }).join('') : '') +
         (ph ? '<h3 class="rep-h">الشواهد</h3>' + (r.note ? '<p class="rep-h" style="margin-top:0">' + esc(r.note) + '</p>' : '') + '<div class="gallery rep-gal init-gal">' + ph + '</div>' : '') +
         (r.file ? '<div class="links" style="margin-top:14px"><a class="btn" href="' + base + r.file + '" target="_blank" rel="noopener">' + esc(r.fileLabel || 'فتح الدليل كاملًا (PDF)') + ' ←</a></div>' : ''));
     }).join("");
