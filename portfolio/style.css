@@ -125,3 +125,4 @@ footer code{font-family:var(--mono)}
 .lb img{max-height:92vh;border-radius:8px}
 .lb button{position:absolute;top:14px;inset-inline-end:14px;background:#fff2;color:#fff;border:0;border-radius:50%;width:40px;height:40px;font-size:20px;cursor:pointer}
 @media print{body::before{display:none}.pager,.lb{display:none}}
+.init-gal img{aspect-ratio:auto;object-fit:contain;background:#fff}
