@@ -160,6 +160,20 @@
       '<div class="links" style="margin-top:14px"><a class="btn" href="' + base + t.pdf + '" target="_blank" rel="noopener">تحميل الجدول (PDF) ←</a></div>') +
       win("المواد والفصول المسندة", '<ul class="points">' + t.classes.map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('') + '</ul>');
   }
+  function quizPlan(t) {
+    var base = "../../shawahid/" + t.folder + "/";
+    var done = t.quizzes.filter(function (q) { return q.done; }).length;
+    return win("جدول مواعيد الاختبارات القصيرة",
+      '<dl class="facts"><div><dt>عدد الاختبارات</dt><dd>' + ar(t.quizzes.length) + ' اختبارات لكل صف</dd></div><div><dt>المنفّذ</dt><dd>' + ar(done) + ' من ' + ar(t.quizzes.length) + '</dd></div><div><dt>المدة</dt><dd>١٥ دقيقة في بداية الحصة</dd></div></dl>' +
+      '<div class="gallery rep-gal init-gal plan-gal"><figure data-src="' + base + t.img + '"><img loading="lazy" src="' + base + t.img + '" alt="خطة الاختبارات القصيرة"></figure></div>' +
+      '<div class="links" style="margin-top:14px"><a class="btn" href="' + base + t.pdf + '" target="_blank" rel="noopener">تحميل الخطة (PDF) ←</a></div>') +
+      t.quizzes.map(function (q, k) {
+        return win("الاختبار القصير " + q.n,
+          '<div class="rep"><span class="rep-n">' + ar(k + 1) + '</span><h2>الاختبار القصير ' + esc(q.n) + ' <small style="font-size:15px;color:' + (q.done ? 'var(--teal)' : 'var(--gold)') + '">' + (q.done ? '✓ نُفّذ' : '⏳ قادم') + '</small></h2></div>' +
+          '<dl class="facts"><div><dt>الموعد</dt><dd>' + esc(q.week) + '</dd></div><div><dt>نوع الاختبار</dt><dd>' + esc(q.type) + '</dd></div></dl>' +
+          sec('الصفوف والمحتوى والمواعيد', q.rows));
+      }).join('');
+  }
   var prev = D.items[idx - 1], next = D.items[idx + 1];
   var pager = '<nav class="pager">' +
     (prev ? '<a href="../' + prev.id + '/"><small>→ السابق</small>' + esc(prev.title) + "</a>" : '<a href="../"><small>→ الرئيسية</small>فهرس الملف</a>') +
@@ -169,7 +183,7 @@
     '<div class="hero"><span class="tag"><span class="dot"></span>البند ' + ar(it.n) + '</span><h1>' + esc(it.title) + "</h1>" +
     '<div class="meta"><span>المعلمة: <b>' + esc(D.teacher) + '</b></span><span>المادة: <b>' + esc(D.subject) + "</b></span></div></div>" +
     win("التعريف بالبند", "<p>" + esc(it.intro) + "</p>" + (pts ? '<div style="height:12px"></div>' + pts : "")) +
-    (it.table ? table(it.table) : it.plans ? plans(it.plans) : it.inits ? inits(it.inits) : it.courses ? courses(it.courses) : it.reports ? reports(it.reports) : it.visits ? visits(it.visits) : it.sessions ? sessions(it.sessions, 'جلسات نفّذتُها') + (it.attended ? sessions(it.attended, 'جلسات نفّذتها زميلاتي وشاركتُ فيها') : '') : win("الشواهد", '<div class="gallery" id="gal"></div><div class="empty" id="empty"><span class="cursor"></span><span>جارٍ تحميل الشواهد…</span></div>')) +
+    (it.quizPlan ? quizPlan(it.quizPlan) : it.table ? table(it.table) : it.plans ? plans(it.plans) : it.inits ? inits(it.inits) : it.courses ? courses(it.courses) : it.reports ? reports(it.reports) : it.visits ? visits(it.visits) : it.sessions ? sessions(it.sessions, 'جلسات نفّذتُها') + (it.attended ? sessions(it.attended, 'جلسات نفّذتها زميلاتي وشاركتُ فيها') : '') : win("الشواهد", '<div class="gallery" id="gal"></div><div class="empty" id="empty"><span class="cursor"></span><span>جارٍ تحميل الشواهد…</span></div>')) +
     links + pager + foot + '<div class="lb" id="lb"><button aria-label="إغلاق">✕</button><img alt=""></div>';
 
   // load evidence photos named 1.jpg, 2.png ... from this folder
@@ -202,5 +216,5 @@
   }
   lb.onclick = function () { lb.classList.remove("on"); };
   document.querySelectorAll("figure[data-src]").forEach(function (f) { f.onclick = function () { lb.querySelector("img").src = f.dataset.src; lb.classList.add("on"); }; });
-  if (!it.reports && !it.visits && !it.sessions && !it.courses && !it.inits && !it.plans && !it.table) step(1);
+  if (!it.reports && !it.visits && !it.sessions && !it.courses && !it.inits && !it.plans && !it.table && !it.quizPlan) step(1);
 })();
