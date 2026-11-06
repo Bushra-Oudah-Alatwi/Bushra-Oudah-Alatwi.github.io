@@ -171,7 +171,10 @@
         return win("الاختبار القصير " + q.n,
           '<div class="rep"><span class="rep-n">' + ar(k + 1) + '</span><h2>الاختبار القصير ' + esc(q.n) + ' <small style="font-size:15px;color:' + (q.done ? 'var(--teal)' : 'var(--gold)') + '">' + (q.done ? '✓ نُفّذ' : '⏳ قادم') + '</small></h2></div>' +
           '<dl class="facts"><div><dt>الموعد</dt><dd>' + esc(q.week) + '</dd></div><div><dt>نوع الاختبار</dt><dd>' + esc(q.type) + '</dd></div></dl>' +
-          sec('الصفوف والمحتوى والمواعيد', q.rows));
+          sec('الصفوف والمحتوى والمواعيد', q.rows) +
+          (k === 0 && t.models ? '<h3 class="rep-h">نماذج الاختبار (اضغطي على الصورة لتكبيرها)</h3><div class="gallery rep-gal init-gal">' +
+            t.models.map(function (m) { return '<figure data-src="' + base + m.f + '.jpg"><img loading="lazy" src="' + base + m.f + '.jpg" alt="' + esc(m.g) + '"><figcaption>' + esc(m.g) + '</figcaption></figure>'; }).join('') + '</div>' +
+            '<div class="links" style="margin-top:14px">' + t.models.map(function (m) { return '<a class="btn" href="' + base + m.f + '.pdf" target="_blank" rel="noopener">' + esc(m.g) + ' (PDF)</a>'; }).join('') + '</div>' : ''));
       }).join('');
   }
   var prev = D.items[idx - 1], next = D.items[idx + 1];
