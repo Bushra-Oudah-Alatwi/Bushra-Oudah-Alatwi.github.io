@@ -146,10 +146,11 @@
         '<div class="rep"><span class="rep-n">' + ar(k + 1) + '</span><h2>' + esc(r.name) + '</h2></div>' +
         '<dl class="facts">' + fact(L.kind || (lbl ? 'نوع التوظيف' : 'نوع الوسيلة'), r.kind) + fact(L.where || 'مجال التوظيف', r.where) + '</dl>' +
         (r.about ? '<p class="rep-about">' + esc(r.about) + '</p>' : '') +
-        sec(L.uses || 'كيف أوظّفها', r.uses) +
+        sec(r.usesTitle || L.uses || 'كيف أوظّفها', r.uses) +
         (ph ? '<h3 class="rep-h">الشواهد</h3>' + (r.note ? '<p class="rep-h" style="margin-top:0">' + esc(r.note) + '</p>' : '') + '<div class="gallery rep-gal init-gal">' + ph + '</div>' : '') +
         ((r.refs||[]).length ? '<h3 class="rep-h">الشواهد</h3><p class="rep-h" style="margin-top:0">الشواهد موثّقة في البنود التالية:</p><div class="links">' + r.refs.map(function (x) { return '<a class="btn" href="' + esc(x.href) + '">بند ' + esc(x.label) + ' ←</a>'; }).join('') + '</div>' : '') +
-        (r.link ? '<div class="links" style="margin-top:14px"><a class="btn" href="' + esc(r.link) + '" target="_blank" rel="noopener">' + esc(r.linkLabel || 'فتح الرابط') + ' ←</a></div>' : ''));
+        (r.link ? '<div class="links" style="margin-top:14px"><a class="btn" href="' + esc(r.link) + '" target="_blank" rel="noopener">' + esc(r.linkLabel || 'فتح الرابط') + ' ←</a></div>' : '') +
+        (r.file ? '<div class="links" style="margin-top:14px"><a class="btn" href="../../shawahid/' + r.file + '" target="_blank" rel="noopener">' + esc(r.fileLabel || 'فتح الملف (PDF)') + ' ←</a></div>' : ''));
     }).join("");
   }
   function plans(list) {
