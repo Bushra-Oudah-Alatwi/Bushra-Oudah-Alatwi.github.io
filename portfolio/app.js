@@ -42,7 +42,7 @@
 
   if (isIndex) {
     document.title = "ملف الإنجاز | " + D.teacher;
-    var tiles = D.items.map(function (it) {
+    var tiles = D.items.filter(function (it) { return !it.hidden; }).map(function (it) {
       return '<a class="tile" href="' + it.id + '/"><span class="ico">' + svg(ICON[it.id]) + "</span><span>" + esc(it.title) + "</span></a>";
     }).join("");
     tiles += '<a class="tile" href="https://drive.google.com/file/d/1fUg3THjWeWyAhclQU5jRaowJ1Dg6D5hi/view?usp=drivesdk" target="_blank" rel="noopener"><span class="ico">' + svg("book") + "</span><span>ميثاق أخلاقيات مهنة التعليم</span></a>";
@@ -196,7 +196,8 @@
             '' : ''));
       }).join('');
   }
-  var prev = D.items[idx - 1], next = D.items[idx + 1];
+  var V = D.items.filter(function (x) { return !x.hidden; }), vi = V.indexOf(it);
+  var prev = it.hidden ? D.items.find(function (x) { return x.id === it.back; }) : V[vi - 1], next = it.hidden ? null : V[vi + 1];
   var pager = '<nav class="pager">' +
     (prev ? '<a href="../' + prev.id + '/"><small>→ السابق</small>' + esc(prev.title) + "</a>" : '<a href="../"><small>→ الرئيسية</small>فهرس الملف</a>') +
     (next ? '<a class="next" href="../' + next.id + '/"><small>التالي ←</small>' + esc(next.title) + "</a>" : '<a class="next" href="../"><small>الرئيسية ←</small>فهرس الملف</a>') + "</nav>";
