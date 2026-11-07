@@ -144,3 +144,6 @@ footer code{font-family:var(--mono)}
 /* محاذاة كل النصوص لليمين */
 #app, #app p, #app li, #app dd, #app dt, #app h1, #app h2, #app h3, #app summary, #app td, #app th, footer, .pager a, .pager a.next, .pager small{text-align:right!important}
 .cert-gal{margin-inline:0 auto}
+/* عنوان النافذة من اليمين والنقاط يسار */
+.win-bar .win-title{margin-inline-start:0;order:1}
+.win-bar .dots{order:2;margin-inline-start:auto}
