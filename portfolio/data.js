@@ -419,7 +419,12 @@ window.PORTFOLIO = {
           usesTitle: "الطالبات المكرّمات",
           file: "motivation/digital-star/certificates.pdf", fileLabel: "فتح الشهادات (PDF)",
           refs: [{ label: "توظيف التقنية في التعليم (تحليل بيانات كلاسيرا)", href: "../tech/" }],
-          photos: ["motivation/digital-star/cert-sahab.jpg","motivation/digital-star/cert-dana.jpg","motivation/digital-star/cert-shahad.jpg","motivation/digital-star/cert-salma.jpg"] }
+          photos: ["motivation/digital-star/cert-sahab.jpg","motivation/digital-star/cert-dana.jpg","motivation/digital-star/cert-shahad.jpg","motivation/digital-star/cert-salma.jpg"] },
+        { name: "التعزيز المكتوب في دفاتر الطالبات", kind: "تحفيز معنوي – تغذية راجعة مكتوبة", where: "ثاني متوسط وثالث متوسط",
+          about: "أصحّح دفاتر الطالبات وأكتب لكل طالبة عبارة تشجيعية بخط يدي مع درجتها، مثل «ممتازة، وفقك الله» و«ممتازة، الله يوفقك»، لأعزّز ثقتها بنفسها وأشجّعها على الاستمرار في الإتقان.",
+          uses: ["تصحيح الدفتر بعد كل درس أو مشروع وكتابة الدرجة.", "كتابة عبارة تشجيعية شخصية لكل طالبة.", "متابعة تحسّن الطالبة في الدروس التالية."],
+          note: "نماذج من دفاتر الطالبات: «الشروط المتداخلة» بمخطط انسيابي (٢٢/٥/١٤٤٨هـ)، ومشروع الوحدة الأولى (٣/٤/١٤٤٨هـ)، ومشروع الوحدة الثالثة (١٧/٥/١٤٤٨هـ).",
+          photos: ["motivation/notebooks/nb1.jpg","motivation/notebooks/nb2.jpg","motivation/notebooks/nb3.jpg"] }
       ],
       captions: {}, links: []
     },
