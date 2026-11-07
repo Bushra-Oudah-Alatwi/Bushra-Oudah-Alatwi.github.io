@@ -137,13 +137,13 @@
         (r.file ? '<div class="links" style="margin-top:14px"><a class="btn" href="' + base + r.file + '" target="_blank" rel="noopener">' + esc(r.fileLabel || 'فتح الدليل كاملًا (PDF)') + ' ←</a></div>' : ''));
     }).join("");
   }
-  function aidsR(list) {
+  function aidsR(list, lbl) {
     function fact(t, v) { return v ? '<div><dt>' + t + '</dt><dd>' + esc(v) + '</dd></div>' : ''; }
-    return '<div class="count">عدد الوسائل: ' + ar(list.length) + '</div>' + list.map(function (r, k) {
+    return '<div class="count">' + (lbl ? 'عدد المجالات: ' : 'عدد الوسائل: ') + ar(list.length) + '</div>' + list.map(function (r, k) {
       var ph = (r.photos || []).map(function (f) { var u = "../../shawahid/" + f; return '<figure data-src="' + u + '"><img loading="lazy" src="' + u + '" alt="شاهد ' + esc(r.name) + '"></figure>'; }).join("");
-      return win("الوسيلة " + ar(k + 1),
+      return win((lbl || "الوسيلة") + " " + ar(k + 1),
         '<div class="rep"><span class="rep-n">' + ar(k + 1) + '</span><h2>' + esc(r.name) + '</h2></div>' +
-        '<dl class="facts">' + fact('نوع الوسيلة', r.kind) + fact('مجال التوظيف', r.where) + '</dl>' +
+        '<dl class="facts">' + fact(lbl ? 'نوع التوظيف' : 'نوع الوسيلة', r.kind) + fact('مجال التوظيف', r.where) + '</dl>' +
         (r.about ? '<p class="rep-about">' + esc(r.about) + '</p>' : '') +
         sec('كيف أوظّفها', r.uses) +
         (ph ? '<h3 class="rep-h">الشواهد</h3><div class="gallery rep-gal init-gal">' + ph + '</div>' : '') +
@@ -202,7 +202,7 @@
     '<div class="hero"><span class="tag"><span class="dot"></span>البند ' + ar(it.n) + '</span><h1>' + esc(it.title) + "</h1>" +
     '<div class="meta"><span>المعلمة: <b>' + esc(D.teacher) + '</b></span><span>المادة: <b>' + esc(D.subject) + "</b></span></div></div>" +
     win("التعريف بالبند", "<p>" + esc(it.intro) + "</p>" + (pts ? '<div style="height:12px"></div>' + pts : "")) +
-    (it.aids ? aidsR(it.aids) : it.quizPlan ? quizPlan(it.quizPlan) : it.table ? table(it.table) : it.plans ? plans(it.plans) : it.inits ? inits(it.inits) : it.courses ? courses(it.courses) : it.reports ? reports(it.reports) : it.visits ? visits(it.visits) : it.sessions ? sessions(it.sessions, 'جلسات نفّذتُها') + (it.attended ? sessions(it.attended, 'جلسات نفّذتها زميلاتي وشاركتُ فيها') : '') : win("الشواهد", '<div class="gallery" id="gal"></div><div class="empty" id="empty"><span class="cursor"></span><span>جارٍ تحميل الشواهد…</span></div>')) +
+    (it.aids ? aidsR(it.aids, it.aidsLabel) : it.quizPlan ? quizPlan(it.quizPlan) : it.table ? table(it.table) : it.plans ? plans(it.plans) : it.inits ? inits(it.inits) : it.courses ? courses(it.courses) : it.reports ? reports(it.reports) : it.visits ? visits(it.visits) : it.sessions ? sessions(it.sessions, 'جلسات نفّذتُها') + (it.attended ? sessions(it.attended, 'جلسات نفّذتها زميلاتي وشاركتُ فيها') : '') : win("الشواهد", '<div class="gallery" id="gal"></div><div class="empty" id="empty"><span class="cursor"></span><span>جارٍ تحميل الشواهد…</span></div>')) +
     links + pager + foot + '<div class="lb" id="lb"><button aria-label="إغلاق">✕</button><img alt=""></div>';
 
   // load evidence photos named 1.jpg, 2.png ... from this folder
