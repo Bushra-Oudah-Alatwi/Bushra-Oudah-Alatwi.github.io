@@ -138,3 +138,6 @@ footer code{font-family:var(--mono)}
 :root[data-theme="dark"] .pw-h{color:#14111c}
 
 .rep-vid{display:block;width:100%;max-height:70vh;border-radius:12px;background:#000;margin-bottom:6px}
+.cert-gal{grid-template-columns:1fr!important;max-width:680px;margin-inline:auto}
+.cert-gal figure{border:2px solid #b48a3c;border-radius:14px;padding:6px;background:#fff;box-shadow:0 6px 18px rgba(75,42,123,.12)}
+.cert-gal img{aspect-ratio:auto!important;object-fit:contain!important;border-radius:8px}

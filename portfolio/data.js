@@ -165,7 +165,7 @@ window.PORTFOLIO = {
           itemsTitle: "التطبيقات التي تناولتها الورشة",
           note: "صور من جلسة الورشة مع المعلمات: عرض الشرح على السبورة الذكية، وتطبيق المعلمات العملي على أجهزتهن، ونتائج مسابقة Kahoot! التي نفّذتها المعلمات.",
           file: "workshop.pdf", fileLabel: "فتح عرض الورشة كاملًا (PDF – ١٦١ شريحة)",
-          folder: "initiatives/tech-workshop", photos: ["session1.jpg","session2.jpg","session3.jpg","session4.jpg","session5.jpg"] },
+          cert: "certificate.jpg", folder: "initiatives/tech-workshop", photos: ["session1.jpg","session2.jpg","session3.jpg","session4.jpg","session5.jpg"] },
         { name: "دليل إنشاء مجلد الشواهد والباركود في قوقل درايف", sub: "دليل مصوّر لملف الإنجاز",
           kind: "دليل إرشادي مصوّر", audience: "معلمات المدرسة", by: "إعداد: أ. بشرى العطوي",
           about: "دليل مصوّر أعددته لزميلاتي المعلمات يشرح طريقة جمع شواهد ملف الإنجاز (صور، فيديو، عروض) في مجلد واحد على قوقل درايف، ثم إنشاء باركود يفتح المجلد كاملًا، وجعله رابطًا تشعبيًا في ملف الإنجاز، مع جدول اختصارات لأجهزة ويندوز وماك.",
@@ -181,7 +181,7 @@ window.PORTFOLIO = {
           items: ["فتح موقع بادليت والضغط على «تسجيل».", "اختيار طريقة التسجيل وإكمال بيانات الحساب.", "اختيار «أنا معلم» وكتابة اسم المدرسة.", "تحديد الصفوف والمواد الدراسية.", "إنشاء لوحة جديدة وتسميتها واختيار التنسيق.", "تخصيص شكل اللوحة ومشاركتها مع الطالبات."],
           itemsTitle: "محاور الدليل (١٤ خطوة)",
           file: "padlet-guide.pdf",
-          folder: "initiatives/padlet-guide", photos: ["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg","photo6.jpg"] }
+          cert: "certificate.jpg", folder: "initiatives/padlet-guide", photos: ["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg","photo6.jpg"] }
       ],
       captions: {}, links: []
     },
@@ -270,7 +270,7 @@ window.PORTFOLIO = {
           note: "مجسمات المعرض، وتقرير المشروع، وباركود لعبة «مغامرة الفضاء».",
           link: "https://bushra-oudah-alatwi.github.io/space-game/", linkLabel: "تشغيل لعبة «مغامرة الفضاء» 🚀",
           file: "report.pdf", fileLabel: "فتح تقرير المشروع (PDF)",
-          folder: "extra-activities/space", photos: ["photo1.jpg","photo2.jpg","photo3.jpg","game-qr.jpg","report1.jpg","report2.jpg"] }
+          cert: "certificate.jpg", folder: "extra-activities/space", photos: ["photo1.jpg","photo2.jpg","photo3.jpg","game-qr.jpg","report1.jpg","report2.jpg"] }
       ],
       captions: {}, links: []
     },
