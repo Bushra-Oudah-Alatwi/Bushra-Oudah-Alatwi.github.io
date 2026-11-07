@@ -141,3 +141,6 @@ footer code{font-family:var(--mono)}
 .cert-gal{grid-template-columns:1fr!important;max-width:680px;margin-inline:auto}
 .cert-gal figure{border:2px solid #b48a3c;border-radius:14px;padding:6px;background:#fff;box-shadow:0 6px 18px rgba(75,42,123,.12)}
 .cert-gal img{aspect-ratio:auto!important;object-fit:contain!important;border-radius:8px}
+/* محاذاة كل النصوص لليمين */
+#app, #app p, #app li, #app dd, #app dt, #app h1, #app h2, #app h3, #app summary, #app td, #app th, footer, .pager a, .pager a.next, .pager small{text-align:right!important}
+.cert-gal{margin-inline:0 auto}
