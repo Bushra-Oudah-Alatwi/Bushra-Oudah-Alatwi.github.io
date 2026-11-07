@@ -147,6 +147,7 @@
         (r.about ? '<p class="rep-about">' + esc(r.about) + '</p>' : '') +
         sec('كيف أوظّفها', r.uses) +
         (ph ? '<h3 class="rep-h">الشواهد</h3><div class="gallery rep-gal init-gal">' + ph + '</div>' : '') +
+        ((r.refs||[]).length ? '<h3 class="rep-h">الشواهد</h3><p class="rep-h" style="margin-top:0">الشواهد موثّقة في البنود التالية:</p><div class="links">' + r.refs.map(function (x) { return '<a class="btn" href="' + esc(x.href) + '">بند ' + esc(x.label) + ' ←</a>'; }).join('') + '</div>' : '') +
         (r.link ? '<div class="links" style="margin-top:14px"><a class="btn" href="' + esc(r.link) + '" target="_blank" rel="noopener">' + esc(r.linkLabel || 'فتح الرابط') + ' ←</a></div>' : ''));
     }).join("");
   }
