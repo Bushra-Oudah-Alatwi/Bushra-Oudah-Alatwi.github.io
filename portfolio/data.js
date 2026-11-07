@@ -431,7 +431,6 @@ window.PORTFOLIO = {
           uses: ["سحاب فاهد الرشيدي – أول متوسط ١ (٦ من ٦).", "دانه عيد البلوي – ثاني متوسط ٢ (٧ من ٧).", "شهد طارق العمراوي – ثالث متوسط ٢ (٨ من ٨).", "سلمى عبدالنبي عمران – ثالث ثانوي ٣ع٤ (١٢ من ١٢)."],
           usesTitle: "الطالبات المكرّمات",
           file: "motivation/digital-star/certificates.pdf", fileLabel: "فتح الشهادات (PDF)",
-          refs: [{ label: "توظيف التقنية في التعليم (تحليل بيانات كلاسيرا)", href: "../tech/" }],
           photos: ["motivation/digital-star/cert-sahab.jpg","motivation/digital-star/cert-dana.jpg","motivation/digital-star/cert-shahad.jpg","motivation/digital-star/cert-salma.jpg"] },
         { name: "التعزيز المكتوب في دفاتر الطالبات", kind: "تحفيز معنوي – تغذية راجعة مكتوبة", where: "ثاني متوسط وثالث متوسط",
           about: "أكتب في دفتر كل طالبة درجتها وعبارة تشجيعية بخط يدي.",
@@ -455,16 +454,16 @@ window.PORTFOLIO = {
         { name: "الاختبارات القصيرة الإلكترونية", kind: "تقويم بنائي – كل وحدة", where: "جميع الصفوف – ٣ اختبارات لكل صف",
           about: "ثلاثة اختبارات قصيرة لكل فصل خلال الفصل الدراسي، مجدولة على كلاسيرا في يوم حصة الفصل وفق جدولي، بسؤالين لكل اختبار.",
           uses: ["الاختبار الأول والثاني والثالث لكل صف وفق خطة الاختبارات القصيرة.", "تصحيح آلي ونتيجة فورية للطالبة."],
-          refs: [{ label: "خطة الاختبارات القصيرة", href: "../quizzes/" }] },
+          photos: ["quizzes/quiz-plan.jpg","quizzes/classera-4.jpg","quizzes/classera-5.jpg"] },
         { name: "الاختبار الفتري", kind: "تقويم بنائي – نهاية كل فترة", where: "جميع الصفوف – الفترة الأولى",
           about: "أقيس تحصيل الطالبات في نهاية كل فترة باختبار فتري (من ٤٠ في المهارات الرقمية ومن ٥٠ في التصميم الرقمي)، وأحلّل نتائجه لكل فصل لأبني عليها المعالجة والإثراء.",
           uses: ["اختبار الفترة الأولى لسبعة فصول (١١٩ طالبة).", "تحليل النتائج ونسب النجاح والتقديرات لكل فصل."],
           photos: ["results/period1/summary.jpg"],
-          refs: [{ label: "تحليل النتائج", href: "../results/" }] },
+           },
         { name: "التقويم بالمشروع والتغذية الراجعة المكتوبة", kind: "تقويم أدائي وختامي للوحدة", where: "أول متوسط وثالث متوسط",
           about: "أقيّم مشاريع الوحدات بمعايير واضحة، وأصحّح الدفاتر وأوراق المشاريع بدرجة وعبارة تشجيعية.",
           uses: ["مشروع «مقصف المدرسة» على Excel – أول متوسط.", "مشروع الوحدة الثالثة «الشراء الآمن» – ثالث متوسط.", "تصحيح الدفاتر بدرجة من ٥ وتعزيز مكتوب."],
-          refs: [{ label: "تنمية المهارات (مشروع المقصف)", href: "../skills/" }, { label: "التحفيز والدافعية (الدفاتر)", href: "../motivation/" }] }
+          photos: ["skills/canteen/task-card.jpg","skills/canteen/bilsan.jpg","motivation/notebooks/nb3.jpg"] }
       ],
       captions: {}, links: []
     },
@@ -478,7 +477,6 @@ window.PORTFOLIO = {
           uses: ["٧ طالبات من ثاني متوسط، و١٠ من ثالث متوسط.", "نواحي الضعف: المشاركة والمهمات الأدائية.", "المعالجة: مشروع الوحدة + اختبار قصير على كلاسيرا.", "النتيجة: جميعهن ٤٠ من ٤٠ بعد المعالجة، وأُعيد الاختبار للغائبات."],
           note: "استمارات خطة معالجة الضعيفات (٣ استمارات).",
           file: "remedial/period1/remedial-plan.pdf", fileLabel: "فتح استمارات المعالجة (PDF)",
-          refs: [{ label: "تحليل النتائج", href: "../results/" }],
           photos: ["remedial/period1/form1.jpg","remedial/period1/form2.jpg","remedial/period1/form3.jpg"] }
       ],
       captions: {}, links: []
@@ -513,8 +511,7 @@ window.PORTFOLIO = {
           uses: ["الطالبات: سحاب الرشيدي، دانه البلوي، شهد العمراوي، سلمى عمران، ورود العمري، وتين البلوي، ديالا آل مشعل.", "الأنشطة: مشروع مصغّر، عرض تقديمي أو إنفوجرافيك، خريطة ذهنية، مقاطع إثرائية على كلاسيرا، ونشر الأعمال على Padlet.", "التحفيز: التعزيز اللفظي، مهام متقدمة، شهادات «النجمة الرقمية»، وعرض الأعمال المتميزة.", "التقويم: ملاحظات المعلمة وملف إنجاز الطالبة الرقمي على Padlet."],
           usesTitle: "محتوى الخطة",
           file: "enrichment/plan/enrichment-plan.pdf", fileLabel: "فتح الخطة الإثرائية (PDF)",
-          refs: [{ label: "شواهد الخطة الإثرائية (أعمال الطالبات)", href: "../enrichment-plan/" }],
-          photos: ["enrichment/plan/plan.jpg"] }
+          photos: ["enrichment/plan/plan.jpg","tech/student-photography/slide01.jpg","class-activities/ecommerce-infographic.jpg","class-activities/ecommerce-mindmap.jpg"] }
       ],
       captions: {}, links: []
     },
@@ -532,7 +529,7 @@ window.PORTFOLIO = {
         { name: "توضيح الخطأ والتعليقات المكتوبة", kind: "تغذية راجعة فردية", where: "جميع الصفوف",
           about: "أوضّح للطالبة خطأها في النشاط وأطلب منها إعادة المحاولة، وأكتب تعليقًا ودرجة على دفترها وأوراق مشاريعها، وتظهر لها نتيجة المهام الإلكترونية فور التسليم.",
           uses: ["توضيح الخطأ للطالبة وطلب إعادة المحاولة.", "تعليقات مكتوبة على الدفاتر وأوراق المشاريع.", "نتيجة فورية في المهام والاختبارات الإلكترونية."],
-          refs: [{ label: "التحفيز والدافعية (الدفاتر)", href: "../motivation/" }, { label: "أساليب وأدوات التقويم", href: "../assessment/" }] }
+          photos: ["motivation/notebooks/nb1.jpg","motivation/notebooks/nb2.jpg","assessment/classera/submissions-g2.jpg"] }
       ],
       captions: {}, links: []
     },
