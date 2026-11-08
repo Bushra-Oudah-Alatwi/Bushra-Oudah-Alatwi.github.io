@@ -147,3 +147,4 @@ footer code{font-family:var(--mono)}
 /* عنوان النافذة من اليمين والنقاط يسار */
 .win-bar .win-title{margin-inline-start:0;order:1}
 .win-bar .dots{order:2;margin-inline-start:auto}
+.ph-cap{font-size:14px;line-height:1.6;color:var(--ink);padding:8px 10px;background:var(--plum-soft);text-align:right}

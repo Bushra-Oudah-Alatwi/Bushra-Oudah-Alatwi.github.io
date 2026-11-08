@@ -141,7 +141,7 @@
     L = L || {};
     function fact(t, v) { return v ? '<div><dt>' + t + '</dt><dd>' + esc(v) + '</dd></div>' : ''; }
     return (list.length > 1 ? '<div class="count">' + (lbl ? 'العدد: ' : 'عدد الوسائل: ') + ar(list.length) + '</div>' : '') + list.map(function (r, k) {
-      var ph = (r.photos || []).map(function (f) { var u = "../../shawahid/" + f; return '<figure data-src="' + u + '"><img loading="lazy" src="' + u + '" alt="شاهد ' + esc(r.name) + '"></figure>'; }).join("");
+      var ph = (r.photos || []).map(function (f, q) { var u = "../../shawahid/" + f; var cp = r.caps && r.caps[q] ? '<figcaption class="ph-cap">' + esc(r.caps[q]) + '</figcaption>' : ''; return '<figure data-src="' + u + '"><img loading="lazy" src="' + u + '" alt="شاهد ' + esc(r.name) + '">' + cp + '</figure>'; }).join("");
       return win((lbl || "الوسيلة") + " " + ar(k + 1),
         '<div class="rep"><span class="rep-n">' + ar(k + 1) + '</span><h2>' + esc(r.name) + '</h2></div>' +
         '<dl class="facts">' + fact(L.kind || (lbl ? 'نوع التوظيف' : 'نوع الوسيلة'), r.kind) + fact(L.where || 'مجال التوظيف', r.where) + '</dl>' +
