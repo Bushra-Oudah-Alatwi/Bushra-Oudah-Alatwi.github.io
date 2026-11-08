@@ -147,6 +147,7 @@
         '<dl class="facts">' + fact(L.kind || (lbl ? 'نوع التوظيف' : 'نوع الوسيلة'), r.kind) + fact(L.where || 'مجال التوظيف', r.where) + '</dl>' +
         (r.about ? '<p class="rep-about">' + esc(r.about) + '</p>' : '') +
         sec(r.usesTitle || L.uses || 'كيف أوظّفها', r.uses) +
+        ((r.videos||[]).length ? '<h3 class="rep-h">مقطع فيديو</h3>' + r.videos.map(function (v) { var u = "../../shawahid/" + v; return '<video class="rep-vid" controls playsinline preload="metadata" poster="' + u.replace(/\.mp4$/, '-poster.jpg') + '" src="' + u + '"></video>'; }).join('') : '') +
         (ph ? '<h3 class="rep-h">الشواهد</h3>' + (r.note ? '<p class="rep-h" style="margin-top:0">' + esc(r.note) + '</p>' : '') + '<div class="gallery rep-gal init-gal">' + ph + '</div>' : '') +
         ((r.refs||[]).length ? '<h3 class="rep-h">الشواهد</h3><p class="rep-h" style="margin-top:0">الشواهد موثّقة في البنود التالية:</p><div class="links">' + r.refs.map(function (x) { return '<a class="btn" href="' + esc(x.href) + '">بند ' + esc(x.label) + ' ←</a>'; }).join('') + '</div>' : '') +
         (r.link ? '<div class="links" style="margin-top:14px"><a class="btn" href="' + esc(r.link) + '" target="_blank" rel="noopener">' + esc(r.linkLabel || 'فتح الرابط') + ' ←</a></div>' : '') +
