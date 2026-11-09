@@ -493,7 +493,7 @@ window.PORTFOLIO = {
           uses: ["٧ طالبات من ثاني متوسط، و١٠ من ثالث متوسط.", "نواحي الضعف: المشاركة والمهمات الأدائية.", "المعالجة: مشروع الوحدة + اختبار قصير على كلاسيرا.", "النتيجة: جميعهن ٤٠ من ٤٠ بعد المعالجة، وأُعيد الاختبار للغائبات."],
           note: "استمارات خطة معالجة الضعيفات (٣ استمارات).",
           file: "remedial/period1/remedial-plan.pdf", fileLabel: "فتح استمارات المعالجة (PDF)",
-          photos: ["remedial/period1/form1.jpg","remedial/period1/form2.jpg","remedial/period1/form3.jpg"] }
+          photos: ["remedial/period1/form1.jpg?v=2","remedial/period1/form2.jpg?v=2","remedial/period1/form3.jpg?v=2"] }
       ],
       captions: {}, links: []
     },
@@ -534,7 +534,7 @@ window.PORTFOLIO = {
           uses: ["الطالبات: سحاب الرشيدي، دانه البلوي، شهد العمراوي، سلمى عمران، ورود العمري، وتين البلوي، ديالا آل مشعل.", "الأنشطة: مشروع مصغّر، عرض تقديمي أو إنفوجرافيك، خريطة ذهنية، مقاطع إثرائية على كلاسيرا، ونشر الأعمال على Padlet.", "التحفيز: التعزيز اللفظي، مهام متقدمة، شهادات «النجمة الرقمية»، وعرض الأعمال المتميزة.", "التقويم: ملاحظات المعلمة وملف إنجاز الطالبة الرقمي على Padlet."],
           usesTitle: "محتوى الخطة",
           file: "enrichment/plan/enrichment-plan.pdf", fileLabel: "فتح الخطة الإثرائية (PDF)",
-          photos: ["enrichment/plan/plan.jpg","tech/student-photography/slide01.jpg","class-activities/ecommerce-infographic.jpg","class-activities/ecommerce-mindmap.jpg"] }
+          photos: ["enrichment/plan/plan.jpg?v=2","tech/student-photography/slide01.jpg","class-activities/ecommerce-infographic.jpg","class-activities/ecommerce-mindmap.jpg"] }
       ],
       captions: {}, links: []
     },
