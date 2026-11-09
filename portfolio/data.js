@@ -422,7 +422,13 @@ window.PORTFOLIO = {
           about: "مشروع ثنائي: قائمة أسعار لمقصف المدرسة على Excel بالدوال، مع موقف «لو معك ١٠ ريالات ماذا ستشترين؟».",
           uses: ["حل المشكلات واتخاذ القرار: اختيار مشتريات بميزانية ١٠ ريالات.", "المهارات العددية: الأسعار والمتوسط والمجموع والمتبقي.", "التعاون والعمل الثنائي مع الزميلة.", "ربط التعلّم بالحياة الواقعية من خلال مقصف المدرسة."],
           note: "بطاقة المشروع، ثم أعمال الطالبات المنشورة على Padlet: ليان الغامدي، بيلسان المالكي، إيلين البلوي، مايا الحربي.",
-          photos: ["skills/canteen/task-card.jpg","skills/canteen/layan.jpg","skills/canteen/bilsan.jpg","skills/canteen/eileen.jpg","skills/canteen/maya.jpg"] }
+          photos: ["skills/canteen/task-card.jpg","skills/canteen/layan.jpg","skills/canteen/bilsan.jpg","skills/canteen/eileen.jpg","skills/canteen/maya.jpg"] },
+        { name: "نشاط مهارات الرياضة الذهنية 🧠", kind: "نشاط صفي تفاعلي – المجال الرياضي والصحي", where: "المرحلة المتوسطة – ١٥ طالبة – الخميس ١٨/٥/١٤٤٨هـ",
+          about: "عرّفت الطالبات بالرياضة الذهنية بوصفها تمرينًا للعقل كما الرياضة البدنية تمرين للجسم، ثم طبّقن مهاراتها عمليًا بلعبة إلكترونية «تحدي العقل الذكي» من تصميمي على السبورة الذكية.",
+          uses: ["التركيز والانتباه، والتفكير المنطقي.", "حل المشكلات، وقوة الذاكرة.", "التخطيط المسبق، وسرعة البديهة.", "التفكير الإبداعي، والصبر والمثابرة."],
+          note: "لوحة مهارات الرياضة الذهنية من تصميمي، ثم صور تنفيذ النشاط مع الطالبات.",
+          link: "https://bushra-oudah-alatwi.github.io/space-game/mind-challenge.html", linkLabel: "تشغيل لعبة «تحدي العقل الذكي» 🧠",
+          photos: ["skills/mind-sports/skills.jpg","skills/mind-sports/photo1.jpg","skills/mind-sports/photo2.jpg","skills/mind-sports/photo3.jpg"] }
       ],
       captions: {}, links: []
     },
