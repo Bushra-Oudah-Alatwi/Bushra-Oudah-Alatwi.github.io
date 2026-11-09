@@ -559,7 +559,7 @@ window.PORTFOLIO = {
           about: "خطة إثرائية للمتفوقات على استمارة المدرسة، اخترتهن حسب تميّزهن على كلاسيرا وPadlet.",
           uses: ["الطالبات: سحاب الرشيدي، دانه البلوي، شهد العمراوي، سلمى عمران، ورود العمري، وتين البلوي، ديالا آل مشعل.", "الأنشطة: مشروع مصغّر، عرض تقديمي أو إنفوجرافيك، خريطة ذهنية، مقاطع إثرائية على كلاسيرا، ونشر الأعمال على Padlet.", "التحفيز: التعزيز اللفظي، مهام متقدمة، شهادات «النجمة الرقمية»، وعرض الأعمال المتميزة.", "التقويم: ملاحظات المعلمة وملف إنجاز الطالبة الرقمي على Padlet."],
           usesTitle: "محتوى الخطة",
-          file: "enrichment/plan/enrichment-plan.pdf", fileLabel: "فتح الخطة الإثرائية (PDF)",
+          file: "enrichment/plan/enrichment-plan.pdf?v=2", fileLabel: "فتح الخطة الإثرائية (PDF)",
           photos: ["enrichment/plan/plan.jpg?v=2","tech/student-photography/slide01.jpg","class-activities/ecommerce-infographic.jpg","class-activities/ecommerce-mindmap.jpg"] }
       ],
       captions: {}, links: []
